@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Analiză Predictivă — Performanță Academică | Anelis</title>
+<meta name="description" content="Analiză pe 1.000 de studenți: ce anume influențează cel mai mult un rezultat — timp de studiu, somn, timp pe ecrane, prezență. Studiu de caz de Anelis.">
+<meta property="og:title" content="Analiză Predictivă — Performanță Academică | Anelis">
+<meta property="og:description" content="Analiză pe 1.000 de studenți: ce anume influențează cel mai mult un rezultat.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23af5234'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='36' font-weight='600' fill='%23ffffff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;1,400&family=Work+Sans:wght@400;500;600;700&display=swap">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:oklch(0.975 0.008 75);}
+a{color:oklch(0.55 0.13 38);}
+a:hover{color:oklch(0.49 0.13 38);}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid oklch(0.55 0.13 38);outline-offset:3px;}
+@media (max-width:760px){
+  header .primary-nav{display:none !important;}
+  header .mobile-nav{display:block !important;}
+}
+@media (min-width:761px){
+  header .mobile-nav{display:none !important;}
+}
+.mobile-nav summary{list-style:none;}
+.mobile-nav summary::-webkit-details-marker{display:none;}
+.mobile-nav summary::marker{content:'';}
+</style>
+</helmet>
+
+<div style="font-family:'Work Sans',sans-serif;color:oklch(0.25 0.015 50);background:oklch(0.975 0.008 75);min-height:100vh;display:flex;flex-direction:column;">
+
+  <header style="position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px clamp(16px,3vw,32px);padding:clamp(12px,2.4vw,20px) clamp(20px,5vw,64px);background:oklch(0.975 0.008 75 / 0.94);backdrop-filter:blur(8px);border-bottom:1px solid oklch(0.9 0.02 60);">
+    <a href="./index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+      <div style="width:34px;height:34px;border-radius:9px;background:oklch(0.55 0.13 38);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Spectral',serif;font-weight:600;font-size:17px;flex:none;">A</div>
+      <div style="font-family:'Spectral',serif;font-weight:600;font-size:23px;letter-spacing:.01em;color:oklch(0.28 0.03 45);">Anelis</div>
+    </a>
+    <nav class="primary-nav" style="display:flex;align-items:center;flex-wrap:wrap;gap:clamp(12px,2.2vw,32px);font-size:clamp(13.5px,1.4vw,15px);color:oklch(0.4 0.02 50);">
+      <a href="./index.html#despre" style="color:inherit;text-decoration:none;padding:11px 0;" style-hover="color:oklch(0.48 0.13 38);">Despre</a>
+      <a href="./index.html#servicii" style="color:inherit;text-decoration:none;padding:11px 0;" style-hover="color:oklch(0.48 0.13 38);">Servicii</a>
+      <a href="./index.html#proces" style="color:inherit;text-decoration:none;padding:11px 0;" style-hover="color:oklch(0.48 0.13 38);">Proces</a>
+      <a href="./index.html#proiecte" style="color:inherit;text-decoration:none;padding:11px 0;" style-hover="color:oklch(0.48 0.13 38);">Proiecte</a>
+      <a href="./index.html#contact" style="color:oklch(0.45 0.12 38);text-decoration:none;font-weight:600;padding:12px 22px;border:1.5px solid oklch(0.55 0.13 38);border-radius:24px;" style-hover="background:oklch(0.55 0.13 38);color:#fff;">Contact</a>
+    </nav>
+    <details class="mobile-nav" style="display:none;position:relative;">
+      <summary aria-label="Deschide meniul" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;border:1.5px solid oklch(0.88 0.02 60);cursor:pointer;background:oklch(0.98 0.006 75);">
+        <span aria-hidden="true" style="display:flex;flex-direction:column;gap:4px;">
+          <span style="width:18px;height:2px;border-radius:1px;background:oklch(0.3 0.02 50);"></span>
+          <span style="width:18px;height:2px;border-radius:1px;background:oklch(0.3 0.02 50);"></span>
+          <span style="width:18px;height:2px;border-radius:1px;background:oklch(0.3 0.02 50);"></span>
+        </span>
+      </summary>
+      <nav style="position:absolute;top:calc(100% + 8px);right:0;min-width:220px;display:flex;flex-direction:column;gap:2px;padding:10px;background:oklch(0.98 0.006 75);border:1px solid oklch(0.9 0.02 60);border-radius:14px;box-shadow:0 16px 40px rgba(43,35,24,0.16);">
+        <a href="./index.html#despre" style="display:flex;align-items:center;min-height:46px;padding:0 12px;border-radius:9px;color:oklch(0.32 0.02 50);text-decoration:none;font-size:15px;" style-hover="background:oklch(0.94 0.025 55);">Despre</a>
+        <a href="./index.html#servicii" style="display:flex;align-items:center;min-height:46px;padding:0 12px;border-radius:9px;color:oklch(0.32 0.02 50);text-decoration:none;font-size:15px;" style-hover="background:oklch(0.94 0.025 55);">Servicii</a>
+        <a href="./index.html#proces" style="display:flex;align-items:center;min-height:46px;padding:0 12px;border-radius:9px;color:oklch(0.32 0.02 50);text-decoration:none;font-size:15px;" style-hover="background:oklch(0.94 0.025 55);">Proces</a>
+        <a href="./index.html#proiecte" style="display:flex;align-items:center;min-height:46px;padding:0 12px;border-radius:9px;color:oklch(0.32 0.02 50);text-decoration:none;font-size:15px;" style-hover="background:oklch(0.94 0.025 55);">Proiecte</a>
+        <a href="./index.html#contact" style="display:flex;align-items:center;justify-content:center;min-height:46px;margin-top:6px;padding:0 12px;border-radius:9px;background:oklch(0.55 0.13 38);color:#fff;text-decoration:none;font-size:15px;font-weight:600;" style-hover="background:oklch(0.49 0.13 38);">Contact</a>
+      </nav>
+    </details>
+  </header>
+
+  <main style="display:flex;flex-direction:column;flex:1;">
+
+  <section style="max-width:900px;margin:0 auto;padding:clamp(34px,3.7vw,56px) clamp(20px,5vw,64px) 0;width:100%;" data-screen-label="Titlu proiect">
+    <a href="./index.html#proiecte" style="display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 20px 10px 16px;margin-bottom:30px;border:1px solid oklch(0.88 0.02 60);border-radius:24px;background:oklch(0.98 0.006 75);font-size:14.5px;font-weight:600;color:oklch(0.35 0.02 50);text-decoration:none;white-space:nowrap;" style-hover="border-color:oklch(0.55 0.13 38);color:oklch(0.45 0.12 38);"><span aria-hidden="true" style="font-size:16px;line-height:1;">←</span>Toate proiectele</a>
+    <div style="margin-bottom:18px;">
+      <span style="font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:oklch(0.44 0.02 50);">Analiză Date</span>
+    </div>
+    <h1 style="font-family:'Spectral',serif;font-weight:500;font-size:clamp(28px,4.6vw,42px);line-height:1.18;margin:0 0 24px;text-wrap:pretty;">Analiză Predictivă — Performanță Academică</h1>
+    <p style="font-size:clamp(16.5px,1.9vw,18px);line-height:1.7;color:oklch(0.36 0.02 50);margin:0;max-width:680px;text-wrap:pretty;">Analiză pe 1.000 de studenți, pentru a înțelege ce anume influențează cel mai mult un rezultat — timp de studiu, somn, timp pe ecrane, prezență.</p>
+  </section>
+
+  <section style="max-width:1080px;margin:0 auto;padding:clamp(29px,3.2vw,48px) clamp(20px,5vw,64px) 0;width:100%;" data-screen-label="Demo interactiv">
+    <div style="border-radius:18px;overflow:hidden;background:oklch(0.98 0.006 75);border:1px solid oklch(0.9 0.02 60);box-shadow:0 24px 60px rgba(60,45,25,0.1);">
+
+      <div role="tablist" style="display:flex;flex-wrap:wrap;border-bottom:1px solid oklch(0.9 0.02 60);">
+        <button type="button" role="tab" aria-selected="{{ selImpact }}" onClick="{{ goImpact }}" style="flex:1 1 130px;appearance:none;border:0;background:{{ bgImpact }};font-family:inherit;font-size:clamp(13px,1.5vw,14.5px);font-weight:600;color:{{ fgImpact }};padding:18px 14px;min-height:56px;cursor:pointer;border-bottom:2px solid {{ lineImpact }};transition:background .2s ease,color .2s ease;">Factori de impact</button>
+        <button type="button" role="tab" aria-selected="{{ selGrupe }}" onClick="{{ goGrupe }}" style="flex:1 1 130px;appearance:none;border:0;border-left:1px solid oklch(0.93 0.015 60);background:{{ bgGrupe }};font-family:inherit;font-size:clamp(13px,1.5vw,14.5px);font-weight:600;color:{{ fgGrupe }};padding:18px 14px;min-height:56px;cursor:pointer;border-bottom:2px solid {{ lineGrupe }};transition:background .2s ease,color .2s ease;">Notă medie pe grupe</button>
+        <button type="button" role="tab" aria-selected="{{ selPredictor }}" onClick="{{ goPredictor }}" style="flex:1 1 130px;appearance:none;border:0;border-left:1px solid oklch(0.93 0.015 60);background:{{ bgPredictor }};font-family:inherit;font-size:clamp(13px,1.5vw,14.5px);font-weight:600;color:{{ fgPredictor }};padding:18px 14px;min-height:56px;cursor:pointer;border-bottom:2px solid {{ linePredictor }};transition:background .2s ease,color .2s ease;">Predictor interactiv</button>
+      </div>
+
+      <div style="padding:clamp(24px,3.4vw,40px) clamp(18px,3.4vw,44px) clamp(28px,3.6vw,44px);">
+
+        <sc-if value="{{ tabImpact }}" hint-placeholder-val="{{ true }}">
+          <p style="margin:0 0 30px;font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:oklch(0.44 0.02 50);">Efect asupra notei finale, per unitate</p>
+          <div style="display:flex;flex-direction:column;gap:22px;">
+            <sc-for list="{{ factors }}" as="f" hint-placeholder-count="4">
+              <div>
+                <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px;">
+                  <span style="font-size:15px;font-weight:600;color:oklch(0.25 0.015 50);">{{ f.name }}</span>
+                  <span style="font-family:'Spectral',serif;font-size:19px;font-weight:600;color:{{ f.color }};">{{ f.label }}</span>
+                </div>
+                <div style="display:flex;height:12px;border-radius:6px;background:oklch(0.94 0.012 65);overflow:hidden;">
+                  <div style="width:50%;display:flex;justify-content:flex-end;">
+                    <div style="width:{{ f.negPct }}%;background:{{ f.color }};border-radius:6px 0 0 6px;transition:width .5s ease;"></div>
+                  </div>
+                  <div style="width:50%;">
+                    <div style="width:{{ f.posPct }}%;height:100%;background:{{ f.color }};border-radius:0 6px 6px 0;transition:width .5s ease;"></div>
+                  </div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+          <p style="margin:30px 0 0;font-size:15px;line-height:1.65;color:oklch(0.5 0.02 50);max-width:640px;text-wrap:pretty;">O oră în plus de studiu adaugă aproape 9,4 puncte la notă; o oră în plus pe ecran scade nota cu peste 5 puncte — genul de tipar pe care aceeași metodă îl poate găsi în datele oricărei afaceri.</p>
+        </sc-if>
+
+        <sc-if value="{{ tabGrupe }}" hint-placeholder-val="{{ false }}">
+          <p style="margin:0 0 30px;font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:oklch(0.44 0.02 50);">Notă medie, gen × job part-time</p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px 26px;margin-bottom:26px;">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13.5px;color:oklch(0.4 0.02 50);">
+              <span style="width:11px;height:11px;border-radius:3px;background:oklch(0.68 0.11 62);"></span>Fără job part-time
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:13.5px;color:oklch(0.4 0.02 50);">
+              <span style="width:11px;height:11px;border-radius:3px;background:oklch(0.5 0.13 30);"></span>Cu job part-time
+            </div>
+          </div>
+          <div style="display:flex;align-items:stretch;gap:clamp(12px,3vw,36px);height:clamp(190px,32vw,250px);padding:0 4px;border-bottom:1px solid oklch(0.88 0.02 60);">
+            <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3">
+              <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:12px;">
+                <div style="flex:1;display:flex;align-items:flex-end;gap:10px;">
+                  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:8px;">
+                    <span style="font-family:'Spectral',serif;font-size:17px;font-weight:600;color:oklch(0.32 0.02 50);">{{ g.aLabel }}</span>
+                    <div style="width:100%;height:{{ g.aPct }}%;border-radius:5px 5px 0 0;background:{{ g.aFill }};transition:height .5s ease;"></div>
+                  </div>
+                  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:8px;">
+                    <span style="font-family:'Spectral',serif;font-size:17px;font-weight:600;color:oklch(0.32 0.02 50);">{{ g.bLabel }}</span>
+                    <div style="width:100%;height:{{ g.bPct }}%;border-radius:5px 5px 0 0;background:{{ g.bFill }};transition:height .5s ease;"></div>
+                  </div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:flex;gap:clamp(12px,3vw,36px);padding:14px 4px 0;">
+            <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3">
+              <div style="flex:1;text-align:center;font-size:14px;font-weight:600;color:oklch(0.35 0.02 50);">{{ g.gen }}</div>
+            </sc-for>
+          </div>
+          <p style="margin:30px 0 0;font-size:15px;line-height:1.65;color:oklch(0.5 0.02 50);max-width:640px;text-wrap:pretty;">Segmentare rapidă pe categorii — utilă oricând vrei să înțelegi diferențe între grupuri de clienți, nu doar o medie generală.</p>
+          <p style="margin:10px 0 0;font-size:13.5px;color:oklch(0.48 0.02 50);">Notă medie la examen, grupată după gen și existența unui job part-time.</p>
+        </sc-if>
+
+        <sc-if value="{{ tabPredictor }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:clamp(26px,3.4vw,44px);align-items:start;">
+            <div style="display:flex;flex-direction:column;gap:24px;">
+              <sc-for list="{{ sliders }}" as="s" hint-placeholder-count="4">
+                <div>
+                  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;">
+                    <span style="font-size:14.5px;font-weight:600;color:oklch(0.25 0.015 50);">{{ s.name }}</span>
+                    <span style="font-size:15px;font-weight:600;color:oklch(0.45 0.12 38);">{{ s.display }}</span>
+                  </div>
+                  <input type="range" aria-label="{{ s.name }}" min="{{ s.min }}" max="{{ s.max }}" step="{{ s.step }}" value="{{ s.value }}" onChange="{{ s.onChange }}" style="width:100%;accent-color:oklch(0.55 0.13 38);height:34px;margin:0;cursor:pointer;touch-action:manipulation;"/>
+                </div>
+              </sc-for>
+            </div>
+            <div style="background:oklch(0.94 0.025 55);border-radius:16px;padding:clamp(22px,3vw,30px) clamp(22px,3vw,32px);">
+              <p style="margin:0 0 18px;font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:oklch(0.44 0.02 50);">Notă prezisă</p>
+              <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:20px;">
+                <span style="font-family:'Spectral',serif;font-weight:600;font-size:clamp(44px,6.4vw,56px);line-height:1;color:oklch(0.22 0.02 50);">{{ score }}</span>
+                <span style="font-size:15px;color:oklch(0.5 0.02 50);">/ 100</span>
+              </div>
+              <div style="height:8px;border-radius:4px;background:oklch(0.88 0.02 60);overflow:hidden;">
+                <div style="height:100%;border-radius:4px;background:oklch(0.55 0.13 38);width:{{ scorePct }}%;transition:width .25s ease;"></div>
+              </div>
+              <p style="margin:20px 0 0;font-size:13.5px;line-height:1.6;color:oklch(0.5 0.02 50);">Recalculat live, la fiecare ajustare.</p>
+            </div>
+          </div>
+          <p style="margin:32px 0 0;font-size:15px;line-height:1.65;color:oklch(0.5 0.02 50);max-width:640px;text-wrap:pretty;">Aceeași formulă pe care o folosește modelul, expusă direct — testează orice combinație și vezi predicția în timp real.</p>
+          <p style="margin:10px 0 0;font-size:13.5px;color:oklch(0.48 0.02 50);">Calculat live, cu formula exactă a modelului antrenat pe cei 1.000 de studenți — nu o estimare separată.</p>
+        </sc-if>
+
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:900px;margin:0 auto;padding:clamp(29px,3.2vw,48px) clamp(20px,5vw,64px) clamp(60px,6.7vw,100px);width:100%;" data-screen-label="Rezultat">
+    <p style="font-size:clamp(16.5px,1.9vw,18px);line-height:1.7;color:oklch(0.36 0.02 50);margin:0;text-wrap:pretty;">Modelul de predicție a ajuns la 89% acuratețe, testat pe date separate de cele de antrenament. Aceeași abordare — curățare, analiză, vizualizare interactivă — se aplică oricărui set de date dezorganizat dintr-o afacere reală.</p>
+  </section>
+
+  <section style="padding:clamp(40px,4.5vw,64px) clamp(20px,5vw,64px);border-top:1px solid oklch(0.9 0.02 60);" data-screen-label="Alte proiecte">
+    <div style="max-width:900px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;">
+      <p style="margin:0;font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:oklch(0.44 0.02 50);white-space:nowrap;">Vezi și</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px 28px;">
+        <a href="./Proiect%20PhysioBaby.dc.html" style="display:inline-flex;align-items:center;min-height:44px;font-size:15.5px;font-weight:600;color:oklch(0.45 0.12 38);text-decoration:none;border-bottom:1.5px solid oklch(0.78 0.08 45);padding:8px 0 4px;white-space:nowrap;" style-hover="border-bottom-color:oklch(0.55 0.13 38);">PhysioBaby →</a>
+        <a href="./Proiect%20KinetoCare.dc.html" style="display:inline-flex;align-items:center;min-height:44px;font-size:15.5px;font-weight:600;color:oklch(0.45 0.12 38);text-decoration:none;border-bottom:1.5px solid oklch(0.78 0.08 45);padding:8px 0 4px;white-space:nowrap;" style-hover="border-bottom-color:oklch(0.55 0.13 38);">KinetoCare →</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(58px,6.4vw,96px) clamp(20px,5vw,64px);background:oklch(0.22 0.02 50);text-align:center;" data-screen-label="CTA final">
+    <div style="max-width:640px;margin:0 auto;">
+      <h2 style="font-family:'Spectral',serif;font-weight:500;font-size:clamp(25px,3.2vw,32px);color:oklch(0.98 0.006 75);margin:0 0 18px;text-wrap:pretty;">Ai date care stau nefolosite?</h2>
+      <p style="font-size:16.5px;line-height:1.65;color:oklch(0.8 0.015 60);margin:0 0 30px;">Trimite-mi un fișier și îți spun ce se poate scoate din el.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px 24px;justify-content:center;align-items:center;">
+        <a href="./index.html#contact" style="display:inline-block;background:oklch(0.55 0.13 38);color:#fff;padding:16px 34px;border-radius:28px;font-size:15.5px;font-weight:600;text-decoration:none;white-space:nowrap;" style-hover="background:oklch(0.49 0.13 38);">Cere o ofertă</a>
+        <a href="./index.html#servicii" style="display:inline-flex;align-items:center;min-height:44px;padding:10px 0;color:oklch(0.88 0.02 60);font-size:15px;font-weight:600;text-decoration:underline;text-underline-offset:4px;white-space:nowrap;" style-hover="color:#fff;">Vezi pachetele de analiză</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <footer style="margin-top:auto;padding:clamp(24px,2.7vw,40px) clamp(20px,5vw,64px);background:oklch(0.19 0.018 50);color:oklch(0.72 0.015 60);">
+    <div style="max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+      <p style="margin:0;font-size:13.5px;">© 2026 Anelis Gheorghiaș. Toate drepturile rezervate.</p>
+      <nav style="display:flex;flex-wrap:wrap;gap:4px 24px;font-size:13.5px;">
+        <a href="./index.html#despre" style="color:oklch(0.72 0.015 60);text-decoration:none;padding:8px 0;" style-hover="color:#fff;">Despre</a>
+        <a href="./index.html#servicii" style="color:oklch(0.72 0.015 60);text-decoration:none;padding:8px 0;" style-hover="color:#fff;">Servicii</a>
+        <a href="./index.html#proiecte" style="color:oklch(0.72 0.015 60);text-decoration:none;padding:8px 0;" style-hover="color:#fff;">Proiecte</a>
+        <a href="./index.html#contact" style="color:oklch(0.72 0.015 60);text-decoration:none;padding:8px 0;" style-hover="color:#fff;">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const POS = 'oklch(0.55 0.13 38)';
+const NEG = 'oklch(0.36 0.09 28)';
+const SERIE_A = 'oklch(0.68 0.11 62)';
+const SERIE_B = 'oklch(0.5 0.13 30)';
+
+// Coeficienți reali din modelul de regresie liniară antrenat pe 1.000 de studenți
+const MODEL = { intercept: 25.51, studyHours: 9.39, screenTime: -5.08, sleepHours: 1.79, attendance: 0.13 };
+
+const IMPACT = [
+  { name: '+1h învățare/zi', value: 9.39 },
+  { name: '+1% prezență', value: 0.13 },
+  { name: '+1h somn', value: 1.79 },
+  { name: '+1h timp pe ecran', value: -5.08 }
+];
+
+const GROUPS = [
+  { gen: 'Femei', faraJob: 69.63, cuJob: 70.2 },
+  { gen: 'Bărbați', faraJob: 69.82, cuJob: 67.85 },
+  { gen: 'Alt gen', faraJob: 72.58, cuJob: 64.48 }
+];
+
+const ro = (n, d) => n.toFixed(d).replace('.', ',');
+
+class Component extends DCLogic {
+  state = { tab: 'impact', studyHours: 4, screenTime: 2.5, sleepHours: 7, attendance: 85 };
+
+  set = (key) => (e) => this.setState({ [key]: parseFloat(e.target.value) });
+
+  renderVals() {
+    const t = this.state.tab;
+
+    const maxAbs = Math.max(...IMPACT.map(f => Math.abs(f.value)));
+    const factors = IMPACT.map(f => ({
+      name: f.name,
+      label: (f.value >= 0 ? '+' : '−') + ro(Math.abs(f.value), 2),
+      color: f.value >= 0 ? POS : NEG,
+      posPct: f.value > 0 ? Math.round((f.value / maxAbs) * 100) : 0,
+      negPct: f.value < 0 ? Math.round((-f.value / maxAbs) * 100) : 0
+    }));
+
+    const lo = 60, hi = 75;
+    const scale = (v) => Math.round(((v - lo) / (hi - lo)) * 100);
+    const groups = GROUPS.map(g => ({
+      gen: g.gen,
+      aLabel: ro(g.faraJob, 2), aPct: scale(g.faraJob), aFill: SERIE_A,
+      bLabel: ro(g.cuJob, 2), bPct: scale(g.cuJob), bFill: SERIE_B
+    }));
+
+    const { studyHours, screenTime, sleepHours, attendance } = this.state;
+    const raw = MODEL.intercept + MODEL.studyHours * studyHours + MODEL.screenTime * screenTime
+      + MODEL.sleepHours * sleepHours + MODEL.attendance * attendance;
+    const predicted = Math.max(0, Math.min(100, raw));
+
+    const sliders = [
+      { name: 'Ore de studiu / zi', min: 0, max: 8.3, step: 0.1, value: studyHours, display: ro(studyHours, 1) + ' h', onChange: this.set('studyHours') },
+      { name: 'Timp pe ecrane (social + streaming)', min: 0, max: 6.3, step: 0.1, value: screenTime, display: ro(screenTime, 1) + ' h', onChange: this.set('screenTime') },
+      { name: 'Ore de somn', min: 3.2, max: 10, step: 0.1, value: sleepHours, display: ro(sleepHours, 1) + ' h', onChange: this.set('sleepHours') },
+      { name: 'Prezență la cursuri', min: 56, max: 100, step: 1, value: attendance, display: attendance + '%', onChange: this.set('attendance') }
+    ];
+
+    const tab = (id) => ({
+      bg: t === id ? 'oklch(0.98 0.006 75)' : 'oklch(0.955 0.012 68)',
+      fg: t === id ? 'oklch(0.5 0.13 38)' : 'oklch(0.5 0.02 50)',
+      line: t === id ? POS : 'transparent'
+    });
+    const a = tab('impact'), b = tab('grupe'), c = tab('predictor');
+
+    return {
+      tabImpact: t === 'impact', tabGrupe: t === 'grupe', tabPredictor: t === 'predictor',
+      selImpact: t === 'impact' ? 'true' : 'false',
+      selGrupe: t === 'grupe' ? 'true' : 'false',
+      selPredictor: t === 'predictor' ? 'true' : 'false',
+      goImpact: () => this.setState({ tab: 'impact' }),
+      goGrupe: () => this.setState({ tab: 'grupe' }),
+      goPredictor: () => this.setState({ tab: 'predictor' }),
+      bgImpact: a.bg, fgImpact: a.fg, lineImpact: a.line,
+      bgGrupe: b.bg, fgGrupe: b.fg, lineGrupe: b.line,
+      bgPredictor: c.bg, fgPredictor: c.fg, linePredictor: c.line,
+      factors, groups, sliders,
+      score: ro(predicted, 1),
+      scorePct: Math.round(predicted)
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<svg viewBox="0 0 800 1500" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Arial, sans-serif">
+  <rect x="0" y="0" width="800" height="1500" fill="#FBF8F2"/>
+  <text x="400" y="30" text-anchor="middle" font-size="16" font-weight="600" fill="#2B2318">Wireframe — Acasă</text>
+
+  <!-- page frame -->
+  <rect x="40" y="50" width="720" height="1420" fill="#ffffff" stroke="#2B2318" stroke-width="1.5"/>
+
+  <!-- Header -->
+  <rect x="40" y="50" width="720" height="60" fill="none" stroke="#2B2318" stroke-width="1"/>
+  <rect x="60" y="65" width="70" height="30" fill="#e5e2dc" stroke="#9a9a9a"/>
+  <text x="95" y="84" text-anchor="middle" font-size="9" fill="#777">Logo</text>
+  <text x="330" y="85" font-size="11" fill="#555">Servicii</text>
+  <text x="410" y="85" font-size="11" fill="#555">Afecțiuni</text>
+  <text x="500" y="85" font-size="11" fill="#555">Prețuri</text>
+  <rect x="620" y="65" width="110" height="30" fill="#2B2318"/>
+  <text x="675" y="85" text-anchor="middle" font-size="10.5" fill="#FBF8F2">Contact</text>
+
+  <!-- Hero -->
+  <rect x="40" y="110" width="720" height="280" fill="#eae6dd" stroke="#2B2318" stroke-width="1"/>
+  <text x="400" y="230" text-anchor="middle" font-size="11" fill="#999">[ imagine hero — impact vizual ]</text>
+  <rect x="220" y="270" width="360" height="26" fill="#d8d4cb"/>
+  <text x="400" y="288" text-anchor="middle" font-size="10" fill="#777">Kinetoterapie pediatrică București</text>
+  <rect x="280" y="310" width="240" height="16" fill="#e5e2dc"/>
+  <text x="400" y="322" text-anchor="middle" font-size="8.5" fill="#999">citat inspirațional</text>
+
+  <!-- Despre terapeut -->
+  <circle cx="140" cy="470" r="55" fill="#e5e2dc" stroke="#9a9a9a"/>
+  <text x="140" y="474" text-anchor="middle" font-size="9" fill="#999">foto</text>
+  <rect x="230" y="425" width="460" height="16" fill="#e5e2dc"/>
+  <rect x="230" y="450" width="420" height="12" fill="#efece5"/>
+  <rect x="230" y="468" width="380" height="12" fill="#efece5"/>
+  <text x="230" y="415" font-size="10" fill="#777">Prezentare Mihaela, kinetoterapeut pediatric</text>
+
+  <!-- 3 pillars -->
+  <g>
+    <rect x="230" y="510" width="140" height="70" fill="none" stroke="#c9c5bc"/>
+    <circle cx="300" cy="530" r="10" fill="#e5e2dc"/>
+    <text x="300" y="555" text-anchor="middle" font-size="9" fill="#777">Experiență</text>
+    <text x="300" y="567" text-anchor="middle" font-size="9" fill="#777">internațională</text>
+
+    <rect x="390" y="510" width="140" height="70" fill="none" stroke="#c9c5bc"/>
+    <circle cx="460" cy="530" r="10" fill="#e5e2dc"/>
+    <text x="460" y="555" text-anchor="middle" font-size="9" fill="#777">Pregătire de</text>
+    <text x="460" y="567" text-anchor="middle" font-size="9" fill="#777">specialitate</text>
+
+    <rect x="550" y="510" width="140" height="70" fill="none" stroke="#c9c5bc"/>
+    <circle cx="620" cy="530" r="10" fill="#e5e2dc"/>
+    <text x="620" y="555" text-anchor="middle" font-size="9" fill="#777">Dedicare</text>
+    <text x="620" y="567" text-anchor="middle" font-size="9" fill="#777">totală</text>
+  </g>
+
+  <!-- Servicii summary: 3 cards -->
+  <text x="70" y="630" font-size="11" fill="#af5234">Serviciile noastre</text>
+  <g>
+    <rect x="70" y="645" width="200" height="220" fill="none" stroke="#2B2318" stroke-width="1"/>
+    <rect x="100" y="670" width="40" height="40" fill="#e5e2dc"/>
+    <rect x="90" y="725" width="160" height="14" fill="#e5e2dc"/>
+    <text x="170" y="735" text-anchor="middle" font-size="9" fill="#999">Evaluare</text>
+    <rect x="90" y="750" width="160" height="10" fill="#efece5"/>
+    <rect x="90" y="765" width="160" height="10" fill="#efece5"/>
+    <rect x="100" y="815" width="140" height="26" fill="none" stroke="#af5234"/>
+    <text x="170" y="832" text-anchor="middle" font-size="9" fill="#af5234">Citește mai mult</text>
+
+    <rect x="300" y="645" width="200" height="220" fill="none" stroke="#2B2318" stroke-width="1"/>
+    <rect x="330" y="670" width="40" height="40" fill="#e5e2dc"/>
+    <rect x="320" y="725" width="160" height="14" fill="#e5e2dc"/>
+    <text x="400" y="735" text-anchor="middle" font-size="9" fill="#999">Kinetoterapie</text>
+    <rect x="320" y="750" width="160" height="10" fill="#efece5"/>
+    <rect x="320" y="765" width="160" height="10" fill="#efece5"/>
+    <rect x="330" y="815" width="140" height="26" fill="none" stroke="#af5234"/>
+    <text x="400" y="832" text-anchor="middle" font-size="9" fill="#af5234">Citește mai mult</text>
+
+    <rect x="530" y="645" width="200" height="220" fill="none" stroke="#2B2318" stroke-width="1"/>
+    <rect x="560" y="670" width="40" height="40" fill="#e5e2dc"/>
+    <rect x="550" y="725" width="160" height="14" fill="#e5e2dc"/>
+    <text x="630" y="735" text-anchor="middle" font-size="9" fill="#999">Terapie manuală</text>
+    <rect x="550" y="750" width="160" height="10" fill="#efece5"/>
+    <rect x="550" y="765" width="160" height="10" fill="#efece5"/>
+    <rect x="560" y="815" width="140" height="26" fill="none" stroke="#af5234"/>
+    <text x="630" y="832" text-anchor="middle" font-size="9" fill="#af5234">Citește mai mult</text>
+  </g>
+
+  <!-- Testimoniale -->
+  <text x="70" y="900" font-size="11" fill="#af5234">Părerile părinților</text>
+  <g>
+    <rect x="70" y="915" width="200" height="120" fill="#f3f1ec" stroke="#c9c5bc"/>
+    <rect x="90" y="935" width="160" height="10" fill="#e5e2dc"/>
+    <rect x="90" y="950" width="160" height="10" fill="#e5e2dc"/>
+    <rect x="90" y="965" width="100" height="10" fill="#e5e2dc"/>
+    <text x="170" y="1005" text-anchor="middle" font-size="9" fill="#999">— Maria D.</text>
+
+    <rect x="300" y="915" width="200" height="120" fill="#f3f1ec" stroke="#c9c5bc"/>
+    <rect x="320" y="935" width="160" height="10" fill="#e5e2dc"/>
+    <rect x="320" y="950" width="160" height="10" fill="#e5e2dc"/>
+    <rect x="320" y="965" width="100" height="10" fill="#e5e2dc"/>
+    <text x="400" y="1005" text-anchor="middle" font-size="9" fill="#999">— Alexandru P.</text>
+
+    <rect x="530" y="915" width="200" height="120" fill="#f3f1ec" stroke="#c9c5bc"/>
+    <rect x="550" y="935" width="160" height="10" fill="#e5e2dc"/>
+    <rect x="550" y="950" width="160" height="10" fill="#e5e2dc"/>
+    <rect x="550" y="965" width="100" height="10" fill="#e5e2dc"/>
+    <text x="630" y="1005" text-anchor="middle" font-size="9" fill="#999">— Elena M.</text>
+  </g>
+
+  <!-- CTA banner -->
+  <rect x="40" y="1070" width="720" height="90" fill="#2B2318"/>
+  <text x="400" y="1110" text-anchor="middle" font-size="13" fill="#FBF8F2">Ești gata să faci primul pas?</text>
+  <rect x="330" y="1125" width="140" height="26" fill="#af5234"/>
+  <text x="400" y="1142" text-anchor="middle" font-size="10" fill="#2B2318">Programează-te</text>
+
+  <!-- Footer -->
+  <rect x="40" y="1160" width="720" height="290" fill="#f3f1ec" stroke="#2B2318" stroke-width="1"/>
+  <rect x="70" y="1190" width="150" height="14" fill="#e5e2dc"/>
+  <text x="145" y="1200" text-anchor="middle" font-size="8" fill="#999">Brand + tagline</text>
+  <rect x="70" y="1230" width="150" height="12" fill="#efece5"/>
+  <text x="145" y="1239" text-anchor="middle" font-size="8" fill="#999">Program</text>
+  <rect x="300" y="1190" width="150" height="60" fill="#efece5"/>
+  <text x="375" y="1225" text-anchor="middle" font-size="8" fill="#999">Contact (tel/email/adresă)</text>
+  <rect x="530" y="1190" width="150" height="60" fill="#efece5"/>
+  <text x="605" y="1225" text-anchor="middle" font-size="8" fill="#999">Legal (confidențialitate, T&amp;C, ANPC)</text>
+  <line x1="70" y1="1400" x2="730" y2="1400" stroke="#c9c5bc"/>
+  <text x="400" y="1420" text-anchor="middle" font-size="9" fill="#999">© 2026</text>
+
+  <!-- floating whatsapp -->
+  <circle cx="710" cy="1440" r="18" fill="#af5234"/>
+  <text x="710" y="1444" text-anchor="middle" font-size="8" fill="#FBF8F2">WA</text>
+  <text x="710" y="1470" text-anchor="middle" font-size="8" fill="#999">buton flotant, pe orice pagină</text>
+</svg>

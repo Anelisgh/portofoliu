@@ -1,0 +1,78 @@
+<svg viewBox="0 0 960 820" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2B2318"/>
+    </marker>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9a9a9a"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="820" fill="#FBF8F2"/>
+  <text x="480" y="36" text-anchor="middle" font-size="18" font-weight="600" fill="#2B2318">PhysioBaby — User Flow</text>
+  <text x="480" y="58" text-anchor="middle" font-size="12.5" fill="#af5234">Obiectiv principal: vizitatorul face o programare prin WhatsApp</text>
+
+  <!-- Start -->
+  <rect x="380" y="90" width="200" height="50" rx="25" fill="none" stroke="#2B2318" stroke-width="1.5"/>
+  <text x="480" y="120" text-anchor="middle" font-size="13" fill="#2B2318">Vizitator ajunge pe site</text>
+  <line x1="480" y1="140" x2="480" y2="175" stroke="#2B2318" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Acasă -->
+  <rect x="330" y="180" width="300" height="60" fill="none" stroke="#2B2318" stroke-width="1.5"/>
+  <text x="480" y="205" text-anchor="middle" font-size="13" font-weight="600" fill="#2B2318">Acasă</text>
+  <text x="480" y="223" text-anchor="middle" font-size="11" fill="#555">Hero + prezentare terapeut + încredere</text>
+  <line x1="480" y1="240" x2="480" y2="275" stroke="#2B2318" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Branch label -->
+  <text x="480" y="270" text-anchor="middle" font-size="10.5" fill="#af5234">vizitatorul explorează, în funcție de nevoie</text>
+
+  <!-- 3 branches -->
+  <rect x="90"  y="290" width="220" height="55" fill="none" stroke="#2B2318" stroke-width="1.3"/>
+  <text x="200" y="313" text-anchor="middle" font-size="12.5" fill="#2B2318">Servicii</text>
+  <text x="200" y="330" text-anchor="middle" font-size="10" fill="#555">3 carduri → detalii pe pagini dedicate</text>
+
+  <rect x="370" y="290" width="220" height="55" fill="none" stroke="#2B2318" stroke-width="1.3"/>
+  <text x="480" y="313" text-anchor="middle" font-size="12.5" fill="#2B2318">Afecțiuni</text>
+  <text x="480" y="330" text-anchor="middle" font-size="10" fill="#555">acordeon, 3 categorii de probleme</text>
+
+  <rect x="650" y="290" width="220" height="55" fill="none" stroke="#2B2318" stroke-width="1.3"/>
+  <text x="760" y="313" text-anchor="middle" font-size="12.5" fill="#2B2318">Prețuri</text>
+  <text x="760" y="330" text-anchor="middle" font-size="10" fill="#555">servicii individuale + pachete</text>
+
+  <!-- lines from Acasă to branches -->
+  <path d="M 480 275 L 480 290 M 480 275 L 200 290 M 480 275 L 760 290" fill="none" stroke="#2B2318" stroke-width="1.3"/>
+
+  <!-- converge down to Contact -->
+  <path d="M 200 345 L 200 380 L 480 380 M 760 345 L 760 380 L 480 380 M 480 345 L 480 380" fill="none" stroke="#2B2318" stroke-width="1.3"/>
+  <line x1="480" y1="380" x2="480" y2="415" stroke="#2B2318" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Contact -->
+  <rect x="330" y="420" width="300" height="60" fill="none" stroke="#2B2318" stroke-width="1.5"/>
+  <text x="480" y="445" text-anchor="middle" font-size="13" font-weight="600" fill="#2B2318">Contact</text>
+  <text x="480" y="463" text-anchor="middle" font-size="11" fill="#555">bandă WhatsApp proeminentă, sus de tot</text>
+  <line x1="480" y1="480" x2="480" y2="515" stroke="#2B2318" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- GDPR -->
+  <rect x="330" y="520" width="300" height="55" fill="none" stroke="#2B2318" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="480" y="543" text-anchor="middle" font-size="12.5" fill="#2B2318">Consimțământ GDPR</text>
+  <text x="480" y="560" text-anchor="middle" font-size="10" fill="#555">fereastră modală, înainte de deschiderea WhatsApp</text>
+  <line x1="480" y1="575" x2="480" y2="610" stroke="#2B2318" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- WhatsApp -->
+  <rect x="330" y="615" width="300" height="55" fill="none" stroke="#2B2318" stroke-width="1.5"/>
+  <text x="480" y="638" text-anchor="middle" font-size="13" fill="#2B2318">WhatsApp se deschide</text>
+  <text x="480" y="655" text-anchor="middle" font-size="10" fill="#555">conversație directă cu clinica</text>
+  <line x1="480" y1="670" x2="480" y2="705" stroke="#2B2318" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- End -->
+  <rect x="360" y="710" width="240" height="50" rx="25" fill="#2B2318"/>
+  <text x="480" y="740" text-anchor="middle" font-size="13" font-weight="600" fill="#FBF8F2">Programare făcută ✓</text>
+
+  <!-- Shortcut path via floating button -->
+  <rect x="700" y="440" width="230" height="70" fill="none" stroke="#9a9a9a" stroke-width="1.3" stroke-dasharray="4 3"/>
+  <text x="815" y="463" text-anchor="middle" font-size="11.5" fill="#af5234">Scurtătură</text>
+  <text x="815" y="480" text-anchor="middle" font-size="10.5" fill="#555">Buton flotant WhatsApp,</text>
+  <text x="815" y="495" text-anchor="middle" font-size="10.5" fill="#555">disponibil pe orice pagină</text>
+  <path d="M 700 475 L 630 475" fill="none" stroke="#9a9a9a" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#arrowGray)"/>
+  <path d="M 815 510 L 815 547 L 630 547" fill="none" stroke="#9a9a9a" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#arrowGray)"/>
+</svg>
