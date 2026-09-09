@@ -42,15 +42,19 @@ input, textarea, select{font-family:'Work Sans',sans-serif;}
 .mobile-nav summary{list-style:none;}
 .mobile-nav summary::-webkit-details-marker{display:none;}
 .mobile-nav summary::marker{content:'';}
+header{transition:padding .25s cubic-bezier(.4,0,.2,1), box-shadow .3s ease;}
+header img{transition:height .25s cubic-bezier(.4,0,.2,1);}
+header.is-scrolled{padding-top:8px !important;padding-bottom:8px !important;box-shadow:0 4px 20px rgba(60,45,25,0.08);}
+header.is-scrolled img{height:40px !important;}
 </style>
 </helmet>
 
-<div style="font-family:'Work Sans',sans-serif;color:oklch(0.25 0.015 50);background:oklch(0.975 0.008 75);">
+<div id="top" style="font-family:'Work Sans',sans-serif;color:oklch(0.25 0.015 50);background:oklch(0.975 0.008 75);">
 
   <header style="position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px clamp(16px,3vw,32px);padding:clamp(12px,2.4vw,20px) clamp(20px,5vw,64px);background:oklch(0.975 0.008 75 / 0.94);backdrop-filter:blur(8px);border-bottom:1px solid oklch(0.9 0.02 60);">
-    <div style="display:flex;align-items:center;">
+    <a href="#top" style="display:flex;align-items:center;text-decoration:none;">
       <img src="./logo-anelis.png" alt="Anelis" style="height:64px;width:auto;display:block;">
-    </div>
+    </a>
     <nav class="primary-nav" style="display:flex;align-items:center;flex-wrap:wrap;gap:clamp(12px,2.2vw,32px);font-size:clamp(13.5px,1.4vw,15px);color:oklch(0.4 0.02 50);">
       <a href="#despre" style="color:inherit;text-decoration:none;padding:11px 0;" style-hover="color:oklch(0.48 0.13 38);">Despre</a>
       <a href="#servicii" style="color:inherit;text-decoration:none;padding:11px 0;" style-hover="color:oklch(0.48 0.13 38);">Servicii</a>
@@ -91,7 +95,7 @@ input, textarea, select{font-family:'Work Sans',sans-serif;}
       </div>
     </div>
     <div style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;justify-content:center;">
-      <div style="width:100%;position:relative;aspect-ratio:440/300;container-type:inline-size;">
+      <div style="width:100%;position:relative;aspect-ratio:440/330;container-type:inline-size;">
         {{ heroMockup }}
       </div>
       <button type="button" onClick="{{ replayAnimation }}" style="align-self:center;margin-top:10px;display:inline-flex;align-items:center;gap:6px;cursor:pointer;background:none;border:0;font-family:inherit;padding:11px 14px;font-size:12.5px;color:oklch(0.48 0.02 50);" style-hover="color:oklch(0.48 0.13 38);">
@@ -671,6 +675,25 @@ input, textarea, select{font-family:'Work Sans',sans-serif;}
 
 </div>
 </x-dc>
+<script>
+(function(){
+  function onScroll(){
+    var header = document.querySelector('header');
+    if (!header) return;
+    if (window.scrollY > 40) header.classList.add('is-scrolled');
+    else header.classList.remove('is-scrolled');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  document.addEventListener('click', function(e){
+    var link = e.target.closest('a[href="#top"]');
+    if (!link) return;
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
 <script type="text/x-dc" data-dc-script data-props="{&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;40745782060&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;loopAnimation&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;}}">
 const QUIZ_PACKAGES = [
   { name: 'Starter', desc: 'O pagină de prezentare simplă, rapidă, cu ce ai nevoie ca să fii găsit online.', price: '800–1500 lei' },
@@ -721,27 +744,28 @@ const mEase = v => 1 - Math.pow(1 - mClamp01(v), 3);
 const mSeg = (t, a, b) => mEase((t - a) / (b - a));
 const CARD_X = [24, 160, 296];
 const MOCK_ITEMS = [
-  { key: 'logo', x: 16, y: 32, w: 18, h: 18, r: 5, delay: 0, persistent: true, color: 'oklch(0.55 0.13 38)' },
-  { key: 'nav1', x: 170, y: 38, w: 26, h: 4, r: 2, delay: 0.02, persistent: true, color: 'oklch(0.8 0.02 60)' },
-  { key: 'nav2', x: 206, y: 38, w: 26, h: 4, r: 2, delay: 0.03, persistent: true, color: 'oklch(0.8 0.02 60)' },
-  { key: 'nav3', x: 242, y: 38, w: 26, h: 4, r: 2, delay: 0.04, persistent: true, color: 'oklch(0.8 0.02 60)' },
-  { key: 'navcta', x: 372, y: 32, w: 48, h: 16, r: 8, delay: 0.05, persistent: true, color: 'oklch(0.55 0.13 38)' },
-  { key: 'head1', x: 24, y: 64, w: 230, h: 14, r: 4, delay: 0, persistent: false, color: 'oklch(0.3 0.03 45)' },
-  { key: 'head2', x: 24, y: 84, w: 170, h: 14, r: 4, delay: 0.02, persistent: false, color: 'oklch(0.3 0.03 45)' },
-  { key: 'sub1', x: 24, y: 106, w: 190, h: 8, r: 3, delay: 0.03, persistent: false, color: 'oklch(0.5 0.02 50)' },
-  { key: 'herobtn', x: 24, y: 124, w: 110, h: 26, r: 13, delay: 0.06, persistent: true, color: 'oklch(0.55 0.13 38)' },
-  { key: 'panel0', x: CARD_X[0], y: 158, w: 124, h: 134, r: 12, delay: 0.04, persistent: true, color: 'oklch(0.98 0.006 75)', border: true },
-  { key: 'panel1', x: CARD_X[1], y: 158, w: 124, h: 134, r: 12, delay: 0.06, persistent: true, color: 'oklch(0.98 0.006 75)', border: true },
-  { key: 'panel2', x: CARD_X[2], y: 158, w: 124, h: 134, r: 12, delay: 0.08, persistent: true, color: 'oklch(0.98 0.006 75)', border: true },
-  { key: 'icon0', x: CARD_X[0] + 14, y: 170, w: 96, h: 40, r: 8, delay: 0.06, persistent: true, color: 'oklch(0.55 0.13 38)' },
-  { key: 'icon1', x: CARD_X[1] + 14, y: 170, w: 96, h: 40, r: 8, delay: 0.08, persistent: true, color: 'oklch(0.55 0.13 38)' },
-  { key: 'icon2', x: CARD_X[2] + 14, y: 170, w: 96, h: 40, r: 8, delay: 0.10, persistent: true, color: 'oklch(0.55 0.13 38)' },
-  { key: 'title0', x: CARD_X[0] + 10, y: 224, w: 104, h: 12, r: 3, delay: 0.08, persistent: false, color: 'oklch(0.3 0.03 45)' },
-  { key: 'title1', x: CARD_X[1] + 10, y: 224, w: 104, h: 12, r: 3, delay: 0.10, persistent: false, color: 'oklch(0.3 0.03 45)' },
-  { key: 'title2', x: CARD_X[2] + 10, y: 224, w: 104, h: 12, r: 3, delay: 0.12, persistent: false, color: 'oklch(0.3 0.03 45)' },
-  { key: 'text0', x: CARD_X[0] + 10, y: 242, w: 94, h: 8, r: 3, delay: 0.10, persistent: false, color: 'oklch(0.5 0.02 50)' },
-  { key: 'text1', x: CARD_X[1] + 10, y: 242, w: 94, h: 8, r: 3, delay: 0.12, persistent: false, color: 'oklch(0.5 0.02 50)' },
-  { key: 'text2', x: CARD_X[2] + 10, y: 242, w: 94, h: 8, r: 3, delay: 0.14, persistent: false, color: 'oklch(0.5 0.02 50)' }
+  { key: 'logo', x: 16, y: 35, w: 18, h: 18, r: 5, delay: 0, persistent: true, color: 'oklch(0.55 0.13 38)', shadow: '0 6px 14px rgba(175,82,52,0.32)' },
+  { key: 'nav1', x: 160, y: 33, w: 56, h: 22, r: 11, delay: 0.02, persistent: true, color: 'oklch(0.92 0.04 55)' },
+  { key: 'nav2', x: 236, y: 40, w: 42, h: 8, r: 3, delay: 0.03, persistent: false, color: 'oklch(0.8 0.02 60)' },
+  { key: 'nav3', x: 298, y: 40, w: 34, h: 8, r: 3, delay: 0.04, persistent: false, color: 'oklch(0.8 0.02 60)' },
+  { key: 'navcta', x: 354, y: 33, w: 66, h: 22, r: 11, delay: 0.05, persistent: true, color: 'oklch(0.55 0.13 38)', shadow: '0 8px 18px rgba(175,82,52,0.3)' },
+  { key: 'head1', x: 24, y: 76, w: 230, h: 14, r: 4, delay: 0, persistent: false, color: 'oklch(0.3 0.03 45)' },
+  { key: 'head2', x: 24, y: 96, w: 170, h: 14, r: 4, delay: 0.02, persistent: false, color: 'oklch(0.3 0.03 45)' },
+  { key: 'sub1', x: 24, y: 118, w: 190, h: 8, r: 3, delay: 0.03, persistent: false, color: 'oklch(0.5 0.02 50)' },
+  { key: 'herobtn', x: 24, y: 136, w: 128, h: 26, r: 13, delay: 0.06, persistent: true, color: 'oklch(0.55 0.13 38)', shadow: '0 10px 22px rgba(175,82,52,0.32)' },
+  { key: 'panel0', x: CARD_X[0], y: 198, w: 124, h: 122, r: 12, delay: 0.04, persistent: true, color: 'oklch(0.98 0.006 75)', border: true, shadow: '0 14px 32px rgba(60,45,25,0.09)' },
+  { key: 'panel1', x: CARD_X[1], y: 198, w: 124, h: 122, r: 12, delay: 0.06, persistent: true, color: 'oklch(0.98 0.006 75)', border: true, shadow: '0 14px 32px rgba(60,45,25,0.09)' },
+  { key: 'panel2', x: CARD_X[2], y: 198, w: 124, h: 122, r: 12, delay: 0.08, persistent: true, color: 'oklch(0.98 0.006 75)', border: true, shadow: '0 14px 32px rgba(60,45,25,0.09)' },
+  { key: 'photo-slot', x: 266, y: 58, w: 144, h: 108, r: 14, delay: 0.06, persistent: false, color: 'oklch(0.9 0.025 55)' },
+  { key: 'icon0', x: CARD_X[0] + 14, y: 210, w: 40, h: 40, r: 10, delay: 0.06, persistent: true, color: 'oklch(0.92 0.04 55)' },
+  { key: 'icon1', x: CARD_X[1] + 14, y: 210, w: 40, h: 40, r: 10, delay: 0.08, persistent: true, color: 'oklch(0.92 0.04 55)' },
+  { key: 'icon2', x: CARD_X[2] + 14, y: 210, w: 40, h: 40, r: 10, delay: 0.10, persistent: true, color: 'oklch(0.92 0.04 55)' },
+  { key: 'title0', x: CARD_X[0] + 10, y: 264, w: 104, h: 12, r: 3, delay: 0.08, persistent: false, color: 'oklch(0.3 0.03 45)' },
+  { key: 'title1', x: CARD_X[1] + 10, y: 264, w: 104, h: 12, r: 3, delay: 0.10, persistent: false, color: 'oklch(0.3 0.03 45)' },
+  { key: 'title2', x: CARD_X[2] + 10, y: 264, w: 104, h: 12, r: 3, delay: 0.12, persistent: false, color: 'oklch(0.3 0.03 45)' },
+  { key: 'text0', x: CARD_X[0] + 10, y: 282, w: 94, h: 8, r: 3, delay: 0.10, persistent: false, color: 'oklch(0.5 0.02 50)' },
+  { key: 'text1', x: CARD_X[1] + 10, y: 282, w: 94, h: 8, r: 3, delay: 0.12, persistent: false, color: 'oklch(0.5 0.02 50)' },
+  { key: 'text2', x: CARD_X[2] + 10, y: 282, w: 94, h: 8, r: 3, delay: 0.14, persistent: false, color: 'oklch(0.5 0.02 50)' }
 ];
 function mockWireOpacity(t, delay) {
   return mSeg(t, delay, delay + 0.10) * (1 - mSeg(t, 0.30, 0.42));
@@ -861,6 +885,7 @@ class Component extends DCLogic {
       position: 'absolute', left: qw(it.x), top: qw(it.y), width: qw(it.w), height: qw(it.h),
       borderRadius: qw(it.r), background: it.color,
       border: it.border ? `${qw(1)} solid oklch(0.9 0.02 60)` : 'none',
+      boxShadow: it.shadow || 'none',
       opacity: mockColorOpacity(t, it.delay, it.persistent), boxSizing: 'border-box'
     }});
     const byKey = k => MOCK_ITEMS.find(i => i.key === k);
@@ -871,6 +896,15 @@ class Component extends DCLogic {
         opacity: op, transform: `translateY(${yOff}px)`
       }, style) }, text);
     };
+    const icon = (it, svg) => h('div', { key: it.key + '-glyph', style: {
+      position: 'absolute', left: qw(it.x), top: qw(it.y), width: qw(it.w), height: qw(it.h),
+      display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'oklch(0.55 0.13 38)',
+      opacity: mockColorOpacity(t, it.delay, it.persistent), boxSizing: 'border-box'
+    }, dangerouslySetInnerHTML: { __html: svg } });
+    const ICON_SHIELD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:55%;height:55%;"><path d="M12 3 L19 6 V11 C19 15.5 16 18.5 12 20.5 C8 18.5 5 15.5 5 11 V6 Z"/></svg>';
+    const ICON_CODE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:55%;height:55%;"><polyline points="9 6 4 12 9 18"/><polyline points="15 6 20 12 15 18"/></svg>';
+    const ICON_PALETTE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:55%;height:55%;"><circle cx="12" cy="12" r="8.5"/><circle cx="9" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="13.5" cy="8" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="11.5" r="1" fill="currentColor" stroke="none"/><circle cx="10" cy="14.5" r="1" fill="currentColor" stroke="none"/></svg>';
+    const ICON_IMAGE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:30%;height:30%;"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M4 16 L9 11 L13 15 L16 12 L20 16"/></svg>';
     const logo = byKey('logo'), heroBtn = byKey('herobtn');
 
     return h('div', { style: {
@@ -881,7 +915,7 @@ class Component extends DCLogic {
       h('div', { key: 'header', style: {
         position: 'absolute', left: 0, top: 0, width: '100%', height: qw(26),
         background: 'oklch(0.98 0.006 75)', borderBottom: '1px solid oklch(0.9 0.02 60)',
-        display: 'flex', alignItems: 'center', gap: qw(6), padding: `0 ${qw(16)}`, boxSizing: 'border-box'
+        display: 'flex', alignItems: 'center', gap: qw(6), padding: `0 ${qw(16)}`, boxSizing: 'border-box', zIndex: 2
       }},
         h('div', { key: 'd1', style: { width: qw(7), height: qw(7), borderRadius: '50%', background: 'oklch(0.82 0.02 60)' } }),
         h('div', { key: 'd2', style: { width: qw(7), height: qw(7), borderRadius: '50%', background: 'oklch(0.82 0.02 60)' } }),
@@ -890,22 +924,41 @@ class Component extends DCLogic {
       ),
       ...MOCK_ITEMS.map(wire),
       ...MOCK_ITEMS.map(color),
-      label('logo-label', logo.x, logo.y + logo.h / 2 - 6, logo.w, 0,
-        { height: qw(logo.h), display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Spectral, serif', fontWeight: 600, fontSize: qw(13), color: '#fff', transform: 'none' }, 'S'),
-      label('heading-final', 24, 60, 260, 0.03,
+      icon(byKey('photo-slot'), ICON_IMAGE),
+      h('img', { key: 'photo-real', src: './hero-mockup-foto.jpg', alt: '', style: {
+        position: 'absolute', left: qw(266), top: qw(58), width: qw(144), height: qw(108), borderRadius: qw(14),
+        objectFit: 'cover', objectPosition: '50% 78%',
+        boxShadow: '0 16px 30px rgba(60,45,25,0.14)', opacity: mockFinalOpacity(t, 0.02)
+      }}),
+      label('logo-label', logo.x, logo.y, logo.w, 0,
+        { height: qw(logo.h), display: 'flex', alignItems: 'center', justifyContent: 'center', lineHeight: 1, fontFamily: 'Spectral, serif', fontWeight: 600, fontSize: qw(13), color: '#fff', transform: 'none' }, 'a'),
+      label('nav-home', byKey('nav1').x, byKey('nav1').y, byKey('nav1').w, 0.02,
+        { height: qw(byKey('nav1').h), display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Work Sans, sans-serif', fontWeight: 600, fontSize: qw(9), color: 'oklch(0.45 0.12 38)', transform: 'none' }, 'Home'),
+      label('nav-services', 236, 38, 46, 0.03,
+        { height: qw(12), display: 'flex', alignItems: 'center', fontFamily: 'Work Sans, sans-serif', fontSize: qw(9), color: 'oklch(0.4 0.02 50)', transform: 'none' }, 'Services'),
+      label('nav-about', 298, 38, 40, 0.04,
+        { height: qw(12), display: 'flex', alignItems: 'center', fontFamily: 'Work Sans, sans-serif', fontSize: qw(9), color: 'oklch(0.4 0.02 50)', transform: 'none' }, 'About'),
+      label('navcta-label', byKey('navcta').x, byKey('navcta').y, byKey('navcta').w, 0.05,
+        { height: qw(byKey('navcta').h), display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Work Sans, sans-serif', fontWeight: 600, fontSize: qw(9), color: '#fff', transform: 'none' }, 'Contact'),
+      label('heading-final', 24, 72, 260, 0.03,
         { fontFamily: 'Spectral, serif', fontWeight: 500, fontSize: qw(15), lineHeight: 1.28, color: 'oklch(0.22 0.02 50)' },
-        [h('div', { key: 'h1' }, 'Titlu principal'), h('div', { key: 'h2' }, 'al site-ului tău')]),
-      label('sub-final', 24, 106, 220, 0.05,
+        [h('div', { key: 'h1' }, 'Elevate Your'), h('div', { key: 'h2' }, 'Digital Presence')]),
+      label('sub-final', 24, 118, 220, 0.05,
         { fontFamily: 'Work Sans, sans-serif', fontSize: qw(9.5), lineHeight: 1.4, color: 'oklch(0.5 0.02 50)' },
-        'Descriere scurtă a serviciului oferit.'),
+        'Thoughtful design, clean code.'),
       label('btn-label', heroBtn.x, heroBtn.y, heroBtn.w, 0.08,
-        { height: qw(heroBtn.h), display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Work Sans, sans-serif', fontWeight: 600, fontSize: qw(9.5), color: '#fff', transform: 'none' }, 'Vezi mai mult'),
-      label('title0', CARD_X[0] + 10, 224, 104, 0.10, { fontFamily: 'Spectral, serif', fontWeight: 600, fontSize: qw(11), color: 'oklch(0.22 0.02 50)' }, 'Serviciu 1'),
-      label('title1', CARD_X[1] + 10, 224, 104, 0.12, { fontFamily: 'Spectral, serif', fontWeight: 600, fontSize: qw(11), color: 'oklch(0.22 0.02 50)' }, 'Serviciu 2'),
-      label('title2', CARD_X[2] + 10, 224, 104, 0.14, { fontFamily: 'Spectral, serif', fontWeight: 600, fontSize: qw(11), color: 'oklch(0.22 0.02 50)' }, 'Serviciu 3'),
-      label('text0', CARD_X[0] + 10, 242, 94, 0.12, { fontFamily: 'Work Sans, sans-serif', fontSize: qw(8), color: 'oklch(0.48 0.02 50)' }, 'Descriere scurtă'),
-      label('text1', CARD_X[1] + 10, 242, 94, 0.14, { fontFamily: 'Work Sans, sans-serif', fontSize: qw(8), color: 'oklch(0.48 0.02 50)' }, 'Descriere scurtă'),
-      label('text2', CARD_X[2] + 10, 242, 94, 0.16, { fontFamily: 'Work Sans, sans-serif', fontSize: qw(8), color: 'oklch(0.48 0.02 50)' }, 'Descriere scurtă')
+        { height: qw(heroBtn.h), display: 'flex', alignItems: 'center', justifyContent: 'center', gap: qw(6), fontFamily: 'Work Sans, sans-serif', fontWeight: 600, fontSize: qw(9.5), color: '#fff', transform: 'none' }, 'Start a project  →'),
+      label('eyebrow-services', 24, 176, 220, 0.09,
+        { fontFamily: 'Work Sans, sans-serif', fontWeight: 600, fontSize: qw(7.5), letterSpacing: '0.1em', textTransform: 'uppercase', color: 'oklch(0.5 0.1 40)' }, 'Our Services'),
+      label('title0', CARD_X[0] + 10, 264, 104, 0.10, { fontFamily: 'Spectral, serif', fontWeight: 600, fontSize: qw(11), color: 'oklch(0.22 0.02 50)' }, 'Web Design'),
+      label('title1', CARD_X[1] + 10, 264, 104, 0.12, { fontFamily: 'Spectral, serif', fontWeight: 600, fontSize: qw(11), color: 'oklch(0.22 0.02 50)' }, 'Development'),
+      label('title2', CARD_X[2] + 10, 264, 104, 0.14, { fontFamily: 'Spectral, serif', fontWeight: 600, fontSize: qw(11), color: 'oklch(0.22 0.02 50)' }, 'UI/UX Design'),
+      label('text0', CARD_X[0] + 10, 282, 94, 0.12, { fontFamily: 'Work Sans, sans-serif', fontSize: qw(8), color: 'oklch(0.48 0.02 50)' }, 'Modern & clean'),
+      label('text1', CARD_X[1] + 10, 282, 94, 0.14, { fontFamily: 'Work Sans, sans-serif', fontSize: qw(8), color: 'oklch(0.48 0.02 50)' }, 'Scalable code'),
+      label('text2', CARD_X[2] + 10, 282, 94, 0.16, { fontFamily: 'Work Sans, sans-serif', fontSize: qw(8), color: 'oklch(0.48 0.02 50)' }, 'User-centered'),
+      icon(byKey('icon0'), ICON_SHIELD),
+      icon(byKey('icon1'), ICON_CODE),
+      icon(byKey('icon2'), ICON_PALETTE)
     );
   }
 

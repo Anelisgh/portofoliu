@@ -33,6 +33,10 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid oklch
 .mobile-nav summary{list-style:none;}
 .mobile-nav summary::-webkit-details-marker{display:none;}
 .mobile-nav summary::marker{content:'';}
+header{transition:padding .25s cubic-bezier(.4,0,.2,1), box-shadow .3s ease;}
+header img{transition:height .25s cubic-bezier(.4,0,.2,1);}
+header.is-scrolled{padding-top:8px !important;padding-bottom:8px !important;box-shadow:0 4px 20px rgba(60,45,25,0.08);}
+header.is-scrolled img{height:40px !important;}
 </style>
 </helmet>
 
@@ -215,6 +219,18 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid oklch
 
 </div>
 </x-dc>
+<script>
+(function(){
+  function onScroll(){
+    var header = document.querySelector('header');
+    if (!header) return;
+    if (window.scrollY > 40) header.classList.add('is-scrolled');
+    else header.classList.remove('is-scrolled');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
 <script type="text/x-dc" data-dc-script data-props="{&quot;variantaText&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Context &amp; Proces&quot;,&quot;Provocare &amp; Soluție&quot;],&quot;default&quot;:&quot;Context &amp; Proces&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Text case study&quot;}}">
 class Component extends DCLogic {
   renderVals() {
