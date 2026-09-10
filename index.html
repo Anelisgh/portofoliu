@@ -88,7 +88,7 @@ header.is-scrolled img{height:40px !important;}
       <p style="font-size:clamp(17px,1.9vw,20px);line-height:1.55;color:oklch(0.42 0.02 50);margin:0 0 38px;max-width:460px;text-wrap:pretty;">Pentru afaceri mici și mijlocii care vor să crească online.</p>
       <div style="display:flex;flex-direction:column;align-items:flex-start;gap:16px;">
         <a href="#contact" style="display:inline-block;background:oklch(0.55 0.13 38);color:#fff;padding:16px 34px;border-radius:28px;font-size:15.5px;font-weight:600;text-decoration:none;white-space:nowrap;" style-hover="background:oklch(0.49 0.13 38);">Hai să discutăm</a>
-        <button type="button" ref="{{ quizTriggerRef }}" onClick="{{ openQuiz }}" style="display:inline-flex;align-items:center;gap:9px;cursor:pointer;background:none;border:0;padding:11px 0;font-family:inherit;text-align:left;">
+        <button type="button" onClick="{{ openQuiz }}" style="display:inline-flex;align-items:center;gap:9px;cursor:pointer;background:none;border:0;padding:11px 0;font-family:inherit;text-align:left;">
           <span style="font-size:14.5px;font-weight:600;color:oklch(0.48 0.13 38);text-decoration:underline;text-underline-offset:3px;">Nu știi de ce ai nevoie? Fă testul</span>
           <span style="font-size:11.5px;font-weight:600;color:oklch(0.42 0.12 38);background:oklch(0.9 0.04 55);padding:3px 9px;border-radius:9px;white-space:nowrap;">30 sec</span>
         </button>
@@ -240,6 +240,12 @@ header.is-scrolled img{height:40px !important;}
 
           <div style="text-align:center;margin-top:36px;">
             <a href="#contact" style="display:inline-block;background:oklch(0.55 0.13 38);color:#fff;padding:16px 30px;border-radius:26px;font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap;" style-hover="background:oklch(0.49 0.13 38);">Cere o ofertă</a>
+            <div>
+              <button type="button" onClick="{{ openQuiz }}" style="display:inline-flex;align-items:center;gap:9px;cursor:pointer;background:none;border:0;padding:16px 0 0;font-family:inherit;">
+                <span style="font-size:14px;font-weight:600;color:oklch(0.48 0.13 38);text-decoration:underline;text-underline-offset:3px;">Nesigur/ă care pachet ți se potrivește? Fă testul</span>
+                <span style="font-size:11.5px;font-weight:600;color:oklch(0.42 0.12 38);background:oklch(0.9 0.04 55);padding:3px 9px;border-radius:9px;white-space:nowrap;">30 sec</span>
+              </button>
+            </div>
           </div>
         </div>
         </sc-if>
@@ -573,7 +579,7 @@ header.is-scrolled img{height:40px !important;}
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:20px;">
         <div style="border-radius:16px;background:oklch(0.98 0.006 75);border:1px solid oklch(0.9 0.02 60);padding:24px 26px;">
           <p style="margin:0 0 8px;font-size:16px;font-weight:600;font-family:'Spectral',serif;color:oklch(0.22 0.02 50);">Cât durează un proiect?</p>
-          <p style="margin:0;font-size:15px;line-height:1.65;color:oklch(0.42 0.02 50);">Depinde de pachet — un proiect Business Premium durează, în medie, 3–4 săptămâni, de la prima discuție până la lansare. Parcurgem împreună pașii din secțiunea Proces de mai sus.</p>
+          <p style="margin:0;font-size:15px;line-height:1.65;color:oklch(0.42 0.02 50);">Depinde de pachet — un proiect Business Premium durează, în medie, 4–6 săptămâni, de la prima discuție până la lansare. Parcurgem împreună pașii din secțiunea Proces de mai sus.</p>
         </div>
         <div style="border-radius:16px;background:oklch(0.98 0.006 75);border:1px solid oklch(0.9 0.02 60);padding:24px 26px;">
           <p style="margin:0 0 8px;font-size:16px;font-weight:600;font-family:'Spectral',serif;color:oklch(0.22 0.02 50);">Ce se întâmplă dacă nu-mi place designul?</p>
@@ -813,18 +819,18 @@ class Component extends DCLogic {
     if (this.onKey) document.removeEventListener('keydown', this.onKey);
   }
 
-  setQuizTriggerRef = (node) => { this.quizTriggerNode = node; };
   setDialogPanelRef = (node) => { this.dialogPanelNode = node; };
   setCloseBtnRef = (node) => { this.closeBtnNode = node; };
 
-  openQuiz = () => {
+  openQuiz = (e) => {
+    this.lastQuizTrigger = e && e.currentTarget;
     this.setState({ quizOpen: true, quizStep: 0, quizAnswers: [] }, () => {
       if (this.closeBtnNode) this.closeBtnNode.focus();
     });
   };
   closeQuiz = () => {
     this.setState({ quizOpen: false }, () => {
-      if (this.quizTriggerNode) this.quizTriggerNode.focus();
+      if (this.lastQuizTrigger) this.lastQuizTrigger.focus();
     });
   };
   selectResultPackage = (pkgName) => () => {
@@ -1002,7 +1008,6 @@ class Component extends DCLogic {
       openQuiz: this.openQuiz,
       closeQuiz: this.closeQuiz,
       selectResultPackage: this.selectResultPackage(QUIZ_PACKAGES[best].name),
-      quizTriggerRef: this.setQuizTriggerRef,
       dialogPanelRef: this.setDialogPanelRef,
       closeBtnRef: this.setCloseBtnRef,
       stopClick: (e) => e.stopPropagation(),
