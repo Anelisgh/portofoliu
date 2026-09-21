@@ -9,13 +9,13 @@
 <meta property="og:description" content="Site-uri care aduc clienți și analize de date care arată clar ce funcționează, pentru afaceri mici și mijlocii.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23af5234'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='36' font-weight='600' fill='%23ffffff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
-<script src="./support.js"></script>
+<script src="./assets/js/support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;1,400&family=Work+Sans:wght@400;500;600;700&display=swap">
-<script src="./image-slot.js"></script>
+<script src="./assets/js/image-slot.js"></script>
 <style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -51,6 +51,21 @@ header{transition:padding .25s cubic-bezier(.4,0,.2,1), box-shadow .3s ease;}
 header img{transition:height .25s cubic-bezier(.4,0,.2,1);}
 header.is-scrolled{padding-top:8px !important;padding-bottom:8px !important;box-shadow:0 4px 20px rgba(60,45,25,0.08);}
 header.is-scrolled img{height:40px !important;}
+
+/* Editorial Tech - Pricing & Comparison Table */
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:20px 0 36px;}
+@media (max-width:960px){.pricing-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:540px){.pricing-grid{grid-template-columns:1fr;}}
+.pricing-card{background:oklch(0.985 0.006 75);border:1px solid oklch(0.89 0.02 60);border-radius:16px;padding:22px 18px;display:flex;flex-direction:column;justify-content:space-between;position:relative;transition:transform .25s cubic-bezier(.4,0,.2,1),box-shadow .25s cubic-bezier(.4,0,.2,1),border-color .25s ease;}
+.pricing-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(60,45,25,0.08);border-color:oklch(0.80 0.04 55);}
+.pricing-table-container{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:16px;border:1px solid oklch(0.89 0.02 60);background:oklch(0.985 0.006 75);box-shadow:0 6px 24px rgba(60,45,25,0.04);margin-bottom:12px;}
+.pricing-table{width:100%;min-width:820px;border-collapse:collapse;text-align:left;font-family:'Work Sans',sans-serif;font-size:13.5px;}
+.pricing-table th,.pricing-table td{padding:14px 18px;border-bottom:1px solid oklch(0.91 0.015 60);vertical-align:top;}
+.pricing-table thead th{background:oklch(0.96 0.015 65);padding:18px 18px;border-bottom:1.5px solid oklch(0.88 0.02 60);}
+.pricing-table tbody tr:last-child td{border-bottom:0;}
+.pricing-table tbody tr:hover td{background:oklch(0.96 0.015 65 / 0.45);}
+.scroll-hint{display:none;}
+@media (max-width:900px){.scroll-hint{display:inline-flex !important;align-items:center;gap:6px;}}
 </style>
 </helmet>
 
@@ -58,7 +73,7 @@ header.is-scrolled img{height:40px !important;}
 
   <header style="position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px clamp(16px,3vw,32px);padding:clamp(12px,2.4vw,20px) clamp(20px,5vw,64px);background:oklch(0.975 0.008 75 / 0.94);backdrop-filter:blur(8px);border-bottom:1px solid oklch(0.9 0.02 60);">
     <a href="#top" style="display:flex;align-items:center;text-decoration:none;">
-      <img src="./logo-anelis.png" alt="Anelis" style="height:64px;width:auto;display:block;">
+      <img src="./assets/images/logo-anelis.png" alt="Anelis" style="height:64px;width:auto;display:block;">
     </a>
     <nav class="primary-nav" style="display:flex;align-items:center;flex-wrap:wrap;gap:clamp(12px,2.2vw,32px);font-size:clamp(13.5px,1.4vw,15px);color:oklch(0.4 0.02 50);">
       <a href="#despre" style="color:inherit;text-decoration:none;padding:11px 0;" style-hover="color:oklch(0.48 0.13 38);">Despre</a>
@@ -66,9 +81,6 @@ header.is-scrolled img{height:40px !important;}
       <a href="#proces" style="color:inherit;text-decoration:none;padding:11px 0;" style-hover="color:oklch(0.48 0.13 38);">Proces</a>
       <a href="#proiecte" style="color:inherit;text-decoration:none;padding:11px 0;" style-hover="color:oklch(0.48 0.13 38);">Proiecte</a>
       <a href="#contact" style="color:oklch(0.45 0.12 38);text-decoration:none;font-weight:600;padding:12px 22px;border:1.5px solid oklch(0.55 0.13 38);border-radius:24px;" style-hover="background:oklch(0.55 0.13 38);color:#fff;">Contact</a>
-      <a href="https://www.linkedin.com/in/anelis-gheorghias/" target="_blank" rel="noopener" aria-label="LinkedIn Anelis Gheorghiash" title="LinkedIn Anelis" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1.5px solid oklch(0.88 0.02 60);color:oklch(0.45 0.12 38);text-decoration:none;transition:border-color .2s, background .2s;" style-hover="border-color:oklch(0.55 0.13 38);background:oklch(0.94 0.025 55);">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-      </a>
     </nav>
     <details class="mobile-nav" style="display:none;position:relative;">
       <summary aria-label="Deschide meniul" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;border:1.5px solid oklch(0.88 0.02 60);cursor:pointer;background:oklch(0.98 0.006 75);">
@@ -84,10 +96,6 @@ header.is-scrolled img{height:40px !important;}
         <a href="#proces" style="display:flex;align-items:center;min-height:46px;padding:0 12px;border-radius:9px;color:oklch(0.32 0.02 50);text-decoration:none;font-size:15px;" style-hover="background:oklch(0.94 0.025 55);">Proces</a>
         <a href="#proiecte" style="display:flex;align-items:center;min-height:46px;padding:0 12px;border-radius:9px;color:oklch(0.32 0.02 50);text-decoration:none;font-size:15px;" style-hover="background:oklch(0.94 0.025 55);">Proiecte</a>
         <a href="#contact" style="display:flex;align-items:center;justify-content:center;min-height:46px;margin-top:6px;padding:0 12px;border-radius:9px;background:oklch(0.55 0.13 38);color:#fff;text-decoration:none;font-size:15px;font-weight:600;" style-hover="background:oklch(0.49 0.13 38);">Contact</a>
-        <a href="https://www.linkedin.com/in/anelis-gheorghias/" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;margin-top:4px;padding:0 12px;border-radius:9px;border:1px solid oklch(0.88 0.02 60);color:oklch(0.45 0.12 38);text-decoration:none;font-size:14px;font-weight:600;" style-hover="background:oklch(0.94 0.025 55);">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-          LinkedIn
-        </a>
       </nav>
     </details>
   </header>
@@ -101,8 +109,8 @@ header.is-scrolled img{height:40px !important;}
       <div style="display:flex;flex-direction:column;align-items:flex-start;gap:16px;">
         <a href="#contact" style="display:inline-block;background:oklch(0.55 0.13 38);color:#fff;padding:16px 34px;border-radius:28px;font-size:15.5px;font-weight:600;text-decoration:none;white-space:nowrap;" style-hover="background:oklch(0.49 0.13 38);">Hai să discutăm</a>
         <button type="button" onClick="{{ openQuiz }}" style="display:inline-flex;align-items:center;gap:9px;cursor:pointer;background:none;border:0;padding:11px 0;font-family:inherit;text-align:left;">
-          <span style="font-size:14.5px;font-weight:600;color:oklch(0.48 0.13 38);text-decoration:underline;text-underline-offset:3px;">Nu știi de ce ai nevoie? Fă testul</span>
-          <span style="font-size:11.5px;font-weight:600;color:oklch(0.42 0.12 38);background:oklch(0.9 0.04 55);padding:3px 9px;border-radius:9px;white-space:nowrap;">30 sec</span>
+          <span style="font-size:14.5px;font-weight:600;color:oklch(0.48 0.13 38);text-decoration:underline;text-underline-offset:3px;">Află ce pachet ți se potrivește (test 30 sec)</span>
+          <span style="font-size:11.5px;font-weight:600;color:oklch(0.42 0.12 38);background:oklch(0.9 0.04 55);padding:3px 9px;border-radius:9px;white-space:nowrap;">Ghid rapid</span>
         </button>
       </div>
     </div>
@@ -119,7 +127,7 @@ header.is-scrolled img{height:40px !important;}
       <button type="button" ref="{{ closeBtnRef }}" onClick="{{ closeQuiz }}" aria-label="Închide testul" style="position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:50%;background:oklch(0.94 0.025 55);border:0;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:oklch(0.35 0.02 50);">✕</button>
 
       <sc-if value="{{ isQuizQuestion }}" hint-placeholder-val="{{ true }}">
-        <div style="font-family:'Spectral',serif;font-style:italic;font-size:14px;color:oklch(0.48 0.13 38);margin:0 0 6px;">Nu știi de ce ai nevoie?</div>
+        <div style="font-family:'Spectral',serif;font-style:italic;font-size:14px;color:oklch(0.48 0.13 38);margin:0 0 6px;">Ghid de orientare interactiv</div>
         <p style="margin:0 0 22px;font-size:12.5px;font-weight:600;letter-spacing:.05em;color:oklch(0.5 0.02 50);">PASUL {{ currentQuestionNum }} DIN 4</p>
         <div style="display:flex;gap:6px;margin-bottom:28px;">
           <sc-for list="{{ quizDots }}" as="dot" hint-placeholder-count="4">
@@ -157,7 +165,7 @@ header.is-scrolled img{height:40px !important;}
     <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,72px);align-items:flex-start;">
       <div style="flex:1 1 280px;min-width:0;align-self:stretch;">
         <div style="width:100%;height:100%;min-height:380px;border-radius:20px;overflow:hidden;">
-          <image-slot id="about-atmosphere" shape="rect" role="img" aria-label="Fotografie de atmosferă din procesul de lucru" placeholder="Fotografie de atmosferă" src="./despre-atmosfera.png"></image-slot>
+          <image-slot id="about-atmosphere" shape="rect" role="img" aria-label="Fotografie de atmosferă din procesul de lucru" placeholder="Fotografie de atmosferă" src="./assets/images/despre-atmosfera.png"></image-slot>
         </div>
       </div>
       <div style="flex:1.3 1 340px;min-width:0;">
@@ -187,61 +195,276 @@ header.is-scrolled img{height:40px !important;}
         </button>
         <sc-if value="{{ isWebOpen }}" hint-placeholder-val="{{ false }}">
         <div style="padding:0 clamp(18px,3vw,32px) clamp(28px,4vw,36px);">
-          <p style="font-size:16px;line-height:1.7;color:oklch(0.42 0.02 50);margin:0 0 32px;">Înainte de orice linie de cod, analizăm împreună ce are nevoie afacerea ta online. Fiecare decizie tehnică pornește de acolo. De la prima schiță până la site-ul live: design UI/UX, identitate vizuală și dezvoltare tehnică completă, cu tehnologii moderne, alese potrivit nevoilor afacerii tale. Construit să funcționeze impecabil și să crească odată cu afacerea ta.</p>
+          <p style="font-size:16px;line-height:1.7;color:oklch(0.42 0.02 50);margin:0 0 26px;">Înainte de orice linie de cod, analizăm împreună ce are nevoie afacerea ta online. Fiecare decizie tehnică pornește de acolo. De la prima schiță până la site-ul live: design UI/UX, identitate vizuală și dezvoltare tehnică completă, cu tehnologii moderne, alese potrivit nevoilor afacerii tale. Construit să funcționeze impecabil și să crească odată cu afacerea ta.</p>
 
-          <p style="font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:oklch(0.5 0.02 50);margin:0 0 4px;">Pachete Web</p>
-          <div>
-            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 32px;padding:20px 0;">
-              <div style="flex:1;">
-                <p style="margin:0 0 6px;font-size:16px;font-weight:600;">1. Starter <span style="font-weight:400;color:oklch(0.5 0.02 50);">(Landing Page / Prezentare)</span></p>
-                <p style="margin:0 0 6px;font-size:14.5px;line-height:1.6;color:oklch(0.42 0.02 50);">O pagină statică curată, rapidă, cu secțiuni de servicii, contact și About. Perfectă pentru afaceri la început de drum care au nevoie rapid de o prezență online de bază.</p>
-                <p style="margin:0;font-size:13px;line-height:1.5;color:oklch(0.48 0.02 50);font-style:italic;">Afaceri la început de drum, freelanceri, cabinete individuale care au nevoie de o „carte de vizită" digitală profesională.</p>
+          <!-- Interactive Quiz Banner at the Top -->
+          <div style="background:oklch(0.96 0.015 65);border:1px solid oklch(0.88 0.02 60);border-radius:14px;padding:16px 20px;margin-bottom:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="font-size:22px;flex:none;">🧭</span>
+              <div>
+                <p style="margin:0 0 2px;font-size:15px;font-weight:600;color:oklch(0.22 0.02 50);">Nu ești sigur care pachet ți se potrivește?</p>
+                <p style="margin:0;font-size:13.5px;color:oklch(0.42 0.02 50);">Răspunde la 4 întrebări rapide și afli exact varianta potrivită pentru bugetul și obiectivele tale.</p>
               </div>
-              <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}"><p style="margin:0;font-size:17px;font-weight:600;color:oklch(0.5 0.13 38);white-space:nowrap;flex:none;">1500–2500 lei</p></sc-if>
             </div>
-            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 32px;padding:20px 0;border-top:1px solid oklch(0.9 0.02 60);">
-              <div style="flex:1;">
-                <p style="margin:0 0 6px;font-size:16px;font-weight:600;">2. Business Premium <span style="font-weight:400;color:oklch(0.5 0.02 50);">(Prezentare &amp; Servicii)</span></p>
-                <p style="margin:0 0 6px;font-size:14.5px;line-height:1.6;color:oklch(0.42 0.02 50);">Strategie completă. UI/UX custom, pagini multiple, integrări (WhatsApp, Google Maps, formulare complexe), optimizare ca site-ul să apară în căutările Google, structurat ca vizitatorii să devină clienți.</p>
-                <p style="margin:0;font-size:13px;line-height:1.5;color:oklch(0.48 0.02 50);font-style:italic;">Clinici, IMM-uri consacrate, antreprenori care vor să atragă activ clienți noi și au nevoie de o imagine premium.</p>
+            <button type="button" onClick="{{ openQuiz }}" style="display:inline-flex;align-items:center;gap:8px;background:oklch(0.55 0.13 38);color:#fff;border:0;padding:10px 20px;border-radius:24px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;" style-hover="background:oklch(0.49 0.13 38);">
+              <span>Fă testul rapid</span>
+              <span style="font-size:11px;opacity:.9;background:rgba(255,255,255,.22);padding:2px 7px;border-radius:10px;">30 sec</span>
+            </button>
+          </div>
+
+          <!-- 4 Core Pillars Overview -->
+          <div style="margin-bottom:8px;">
+            <p style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:oklch(0.5 0.02 50);margin:0;">Pachete Web Disponibile</p>
+          </div>
+
+          <div class="pricing-grid">
+            <!-- Card 1: Starter -->
+            <div class="pricing-card">
+              <div>
+                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px;">
+                  <h4 style="margin:0;font-family:'Spectral',serif;font-size:21px;font-weight:600;color:oklch(0.22 0.02 50);">Starter</h4>
+                  <span style="font-size:11.5px;font-weight:600;color:oklch(0.42 0.02 50);background:oklch(0.93 0.025 60);padding:3px 8px;border-radius:6px;white-space:nowrap;flex:none;">2–3 săpt.</span>
+                </div>
+                <p style="margin:0 0 14px;font-size:13px;line-height:1.5;color:oklch(0.45 0.02 50);font-style:italic;">Site compact pe o singură pagină, derulare fluidă.</p>
+                <div style="margin:0 0 16px;padding:12px 0;border-top:1px solid oklch(0.91 0.015 60);border-bottom:1px solid oklch(0.91 0.015 60);">
+                  <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}">
+                    <div style="font-family:'Spectral',serif;font-size:22px;font-weight:600;color:oklch(0.5 0.13 38);">1.500 – 2.500 lei</div>
+                  </sc-if>
+                </div>
+                <p style="margin:0 0 8px;font-size:13.5px;line-height:1.55;color:oklch(0.38 0.02 50);">Afaceri la început de drum, specialiști independenți și lansări rapide care au nevoie de o prezență digitală clară și credibilă.</p>
               </div>
-              <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}"><p style="margin:0;font-size:17px;font-weight:600;color:oklch(0.5 0.13 38);white-space:nowrap;flex:none;">2500–4000 lei</p></sc-if>
+              <div style="margin-top:18px;">
+                <a href="#contact" style="display:block;text-align:center;padding:10px 14px;border-radius:10px;border:1.5px solid oklch(0.88 0.02 60);color:oklch(0.35 0.02 50);text-decoration:none;font-size:13.5px;font-weight:600;" style-hover="border-color:oklch(0.55 0.13 38);color:oklch(0.55 0.13 38);background:oklch(0.96 0.02 55);">Alege Starter</a>
+              </div>
             </div>
-            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 32px;padding:20px 0;border-top:1px solid oklch(0.9 0.02 60);">
-              <div style="flex:1;">
-                <p style="margin:0 0 6px;font-size:16px;font-weight:600;">3. Website E-Commerce</p>
-                <p style="margin:0 0 6px;font-size:14.5px;line-height:1.6;color:oklch(0.42 0.02 50);">Configurare magazin online complet, design personalizat, adăugare produse, setare metode de plată/livrare, optimizare checkout.</p>
-                <p style="margin:0;font-size:13px;line-height:1.5;color:oklch(0.48 0.02 50);font-style:italic;">Afaceri de retail, branduri de haine, producători locali care vând produse fizice.</p>
+
+            <!-- Card 2: Business Premium -->
+            <div class="pricing-card">
+              <div>
+                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px;">
+                  <h4 style="margin:0;font-family:'Spectral',serif;font-size:21px;font-weight:600;color:oklch(0.22 0.02 50);">Business Premium</h4>
+                  <span style="font-size:11.5px;font-weight:600;color:oklch(0.42 0.02 50);background:oklch(0.93 0.025 60);padding:3px 8px;border-radius:6px;white-space:nowrap;flex:none;">2–5 săpt.</span>
+                </div>
+                <p style="margin:0 0 14px;font-size:13px;line-height:1.5;color:oklch(0.45 0.02 50);font-style:italic;">Site multi-pagină + pagini dedicate per serviciu.</p>
+                <div style="margin:0 0 16px;padding:12px 0;border-top:1px solid oklch(0.91 0.015 60);border-bottom:1px solid oklch(0.91 0.015 60);">
+                  <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}">
+                    <div style="font-family:'Spectral',serif;font-size:22px;font-weight:600;color:oklch(0.5 0.13 38);">2.500 – 4.000 lei</div>
+                  </sc-if>
+                </div>
+                <p style="margin:0 0 8px;font-size:13.5px;line-height:1.55;color:oklch(0.38 0.02 50);">Firme de servicii, specialiști independenți și afaceri locale care vor o prezență solidă, să fie găsite ușor pe Google și să aibă pagini separate per serviciu.</p>
               </div>
-              <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}"><p style="margin:0;font-size:17px;font-weight:600;color:oklch(0.5 0.13 38);white-space:nowrap;flex:none;">4000–7000 lei</p></sc-if>
+              <div style="margin-top:18px;">
+                <a href="#contact" style="display:block;text-align:center;padding:10px 14px;border-radius:10px;border:1.5px solid oklch(0.88 0.02 60);color:oklch(0.35 0.02 50);text-decoration:none;font-size:13.5px;font-weight:600;" style-hover="border-color:oklch(0.55 0.13 38);color:oklch(0.55 0.13 38);background:oklch(0.96 0.02 55);">Alege Business</a>
+              </div>
             </div>
-            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 32px;padding:20px 0;border-top:1px solid oklch(0.9 0.02 60);">
-              <div style="flex:1;">
-                <p style="margin:0 0 6px;font-size:16px;font-weight:600;">4. Ecosistem Digital <span style="font-weight:400;color:oklch(0.5 0.02 50);">(Site + Funcționalități)</span></p>
-                <p style="margin:0 0 6px;font-size:14.5px;line-height:1.6;color:oklch(0.42 0.02 50);">Tot ce e în Premium + dezvoltare avansată: sistem de programări, dashboard-uri administrative, portal clienți, baze de date custom.</p>
-                <p style="margin:0 0 8px;font-size:13px;line-height:1.5;color:oklch(0.48 0.02 50);font-style:italic;">Afaceri care vor să-și automatizeze fluxul de lucru și să scape de munca manuală.</p>
-                <a href="./Demo%20Dashboard%20-%20Ecosistem%20Digital.dc.html" style="display:inline-flex;align-items:center;min-height:32px;font-size:13.5px;font-weight:600;color:oklch(0.45 0.12 38);text-decoration:none;border-bottom:1.5px solid oklch(0.82 0.06 45);padding-bottom:2px;white-space:nowrap;" style-hover="border-bottom-color:oklch(0.55 0.13 38);">Vezi un exemplu live →</a>
+
+            <!-- Card 3: E-Commerce -->
+            <div class="pricing-card">
+              <div>
+                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px;">
+                  <h4 style="margin:0;font-family:'Spectral',serif;font-size:21px;font-weight:600;color:oklch(0.22 0.02 50);">Website E-Commerce</h4>
+                  <span style="font-size:11.5px;font-weight:600;color:oklch(0.42 0.02 50);background:oklch(0.93 0.025 60);padding:3px 8px;border-radius:6px;white-space:nowrap;flex:none;">4–6 săpt.</span>
+                </div>
+                <p style="margin:0 0 14px;font-size:13px;line-height:1.5;color:oklch(0.45 0.02 50);font-style:italic;">Magazin online complet, plăți securizate &amp; curier.</p>
+                <div style="margin:0 0 16px;padding:12px 0;border-top:1px solid oklch(0.91 0.015 60);border-bottom:1px solid oklch(0.91 0.015 60);">
+                  <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}">
+                    <div style="font-family:'Spectral',serif;font-size:22px;font-weight:600;color:oklch(0.5 0.13 38);">4.000 – 7.000 lei</div>
+                  </sc-if>
+                </div>
+                <p style="margin:0 0 8px;font-size:13.5px;line-height:1.55;color:oklch(0.38 0.02 50);">Branduri locale, producători și retail. Configurare catalog, gestiune comenzi, stocuri și instruire 1-la-1.</p>
               </div>
-              <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}"><p style="margin:0;font-size:17px;font-weight:600;color:oklch(0.5 0.13 38);white-space:nowrap;flex:none;">de la 6000 lei</p></sc-if>
+              <div style="margin-top:18px;">
+                <a href="#contact" style="display:block;text-align:center;padding:10px 14px;border-radius:10px;border:1.5px solid oklch(0.88 0.02 60);color:oklch(0.35 0.02 50);text-decoration:none;font-size:13.5px;font-weight:600;" style-hover="border-color:oklch(0.55 0.13 38);color:oklch(0.55 0.13 38);background:oklch(0.96 0.02 55);">Alege E-Commerce</a>
+              </div>
+            </div>
+
+            <!-- Card 4: Ecosistem Digital -->
+            <div class="pricing-card">
+              <div>
+                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px;">
+                  <h4 style="margin:0;font-family:'Spectral',serif;font-size:21px;font-weight:600;color:oklch(0.22 0.02 50);">Ecosistem Digital</h4>
+                  <span style="font-size:11.5px;font-weight:600;color:oklch(0.42 0.02 50);background:oklch(0.93 0.025 60);padding:3px 8px;border-radius:6px;white-space:nowrap;flex:none;">Variabil</span>
+                </div>
+                <p style="margin:0 0 14px;font-size:13px;line-height:1.5;color:oklch(0.45 0.02 50);font-style:italic;">Platformă web custom + automatizări de flux.</p>
+                <div style="margin:0 0 16px;padding:12px 0;border-top:1px solid oklch(0.91 0.015 60);border-bottom:1px solid oklch(0.91 0.015 60);">
+                  <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}">
+                    <div style="font-family:'Spectral',serif;font-size:22px;font-weight:600;color:oklch(0.5 0.13 38);">de la 6.000 lei</div>
+                  </sc-if>
+                </div>
+                <p style="margin:0 0 8px;font-size:13.5px;line-height:1.55;color:oklch(0.38 0.02 50);">Afaceri și organizații cu fluxuri complexe care vor să scape de tabele Excel și evidențe manuale prin portaluri și baze de date.</p>
+                <a href="./pages/proiect-kinetocare.dc.html" style="display:inline-flex;align-items:center;gap:4px;font-size:12.5px;font-weight:600;color:oklch(0.45 0.12 38);text-decoration:none;margin-top:4px;" style-hover="text-decoration:underline;">Vezi studiul de caz KinetoCare →</a>
+              </div>
+              <div style="margin-top:18px;">
+                <a href="#contact" style="display:block;text-align:center;padding:10px 14px;border-radius:10px;border:1.5px solid oklch(0.88 0.02 60);color:oklch(0.35 0.02 50);text-decoration:none;font-size:13.5px;font-weight:600;" style-hover="border-color:oklch(0.55 0.13 38);color:oklch(0.55 0.13 38);background:oklch(0.96 0.02 55);">Discută Proiect</a>
+              </div>
             </div>
           </div>
 
-          <div style="margin-top:12px;padding-top:28px;border-top:2px solid oklch(0.94 0.025 55);">
-            <button type="button" onClick="{{ toggleMaint }}" aria-expanded="{{ maintExpanded }}" style="display:flex;width:100%;justify-content:space-between;align-items:center;gap:16px;cursor:pointer;background:none;border:0;font-family:inherit;text-align:left;padding:12px 0;">
-              <span style="font-size:15px;font-weight:600;color:oklch(0.22 0.02 50);">↳ Mentenanță Website &amp; Social Media <span style="font-weight:400;color:oklch(0.5 0.02 50);">(disponibilă pentru clienții cu un pachet activ)</span></span>
-              <span aria-hidden="true" style="font-size:15px;color:oklch(0.42 0.12 38);flex:none;">{{ maintIcon }}</span>
+          <!-- Comparative Matrix Title & Mobile Scroll Hint -->
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin:32px 0 14px;">
+            <div>
+              <p style="font-size:12px;font-family:ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:oklch(0.5 0.02 50);margin:0 0 4px;">Grilă Comparativă</p>
+              <h4 style="margin:0;font-family:'Spectral',serif;font-size:clamp(19px,2.2vw,23px);font-weight:600;color:oklch(0.22 0.02 50);">Compară specificațiile și livrabilele fiecărui pachet</h4>
+            </div>
+            <span class="scroll-hint" style="font-size:12px;font-weight:600;color:oklch(0.48 0.13 38);background:oklch(0.94 0.025 55);padding:6px 12px;border-radius:20px;border:1px solid oklch(0.88 0.02 60);">
+              ← Glisează orizontal pentru tabelul complet →
+            </span>
+          </div>
+
+          <!-- The Clean Editorial Tech Table -->
+          <div class="pricing-table-container">
+            <table class="pricing-table">
+              <thead>
+                <tr>
+                  <th style="font-family:'Spectral',serif;font-size:14px;font-weight:600;color:oklch(0.3 0.02 50);letter-spacing:.04em;">Ce compari</th>
+                  <th style="font-family:'Spectral',serif;font-size:15px;font-weight:600;color:oklch(0.25 0.02 50);">Starter</th>
+                  <th style="font-family:'Spectral',serif;font-size:15px;font-weight:600;color:oklch(0.25 0.02 50);">Business Premium</th>
+                  <th style="font-family:'Spectral',serif;font-size:15px;font-weight:600;color:oklch(0.25 0.02 50);">E-Commerce</th>
+                  <th style="font-family:'Spectral',serif;font-size:15px;font-weight:600;color:oklch(0.25 0.02 50);">Ecosistem Digital</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-weight:600;color:oklch(0.25 0.02 50);">Investiție estimată</td>
+                  <td style="font-family:'Spectral',serif;font-weight:600;color:oklch(0.5 0.13 38);font-size:15px;">1.500 – 2.500 lei</td>
+                  <td style="font-family:'Spectral',serif;font-weight:600;color:oklch(0.5 0.13 38);font-size:15px;">2.500 – 4.000 lei</td>
+                  <td style="font-family:'Spectral',serif;font-weight:600;color:oklch(0.5 0.13 38);font-size:15px;">4.000 – 7.000 lei</td>
+                  <td style="font-family:'Spectral',serif;font-weight:600;color:oklch(0.5 0.13 38);font-size:15px;">de la 6.000 lei</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600;color:oklch(0.25 0.02 50);">Timp estimat livrare</td>
+                  <td>2–3 săptămâni</td>
+                  <td>2–5 săptămâni</td>
+                  <td>4–6 săptămâni</td>
+                  <td>Variabil (stabilit pe etape)</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600;color:oklch(0.25 0.02 50);">Structură &amp; Număr pagini</td>
+                  <td>Prezentare pe o singură pagină (derulare fluidă)</td>
+                  <td>Site complet: pagini principale + pagini dedicate per serviciu</td>
+                  <td>Catalog produse, pagini produs, coș &amp; checkout</td>
+                  <td>Platformă web custom (pagini publice + portal/panou intern)</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600;color:oklch(0.25 0.02 50);">Texte &amp; Conținut</td>
+                  <td>Aranjez și șlefuiesc textele trimise de tine</td>
+                  <td>Lucrăm împreună la structurarea mesajelor de vânzare</td>
+                  <td>Structurare catalog + redactare texte pagini cheie</td>
+                  <td>Arhitectură completă de conținut &amp; fluxuri de date</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600;color:oklch(0.25 0.02 50);">Contact &amp; Conversie</td>
+                  <td>Formular contact + Buton direct apel/WhatsApp</td>
+                  <td>Formulare avansate, hartă Google, CTA strategic per serviciu</td>
+                  <td>Flux de cumpărare rapid, calcul livrare, cupoane reducere</td>
+                  <td>Automatizări, conturi clienți, formulare pas-cu-pas</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600;color:oklch(0.25 0.02 50);">Vizibilitate Google (SEO)</td>
+                  <td>Indexare Google + optimizare pe numele brandului</td>
+                  <td>SEO local pe fiecare serviciu (pentru căutări din zona ta)</td>
+                  <td>Optimizare SEO pentru categorii și pagini de produs</td>
+                  <td>Structură SEO tehnică avansată pentru platforme mari</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600;color:oklch(0.25 0.02 50);">Vânzare Online &amp; Plăți</td>
+                  <td style="color:oklch(0.7 0.015 60);font-size:16px;">—</td>
+                  <td style="color:oklch(0.7 0.015 60);font-size:16px;">—</td>
+                  <td>Plăți card securizate + integrare curierat + 20–30 produse adăugate</td>
+                  <td>Opțional / Integrat cu facturare și plăți</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600;color:oklch(0.25 0.02 50);">Funcționalități Custom</td>
+                  <td style="color:oklch(0.7 0.015 60);font-size:16px;">—</td>
+                  <td style="color:oklch(0.7 0.015 60);font-size:16px;">—</td>
+                  <td>Gestiune comenzi, stocuri și notificări automate pe email</td>
+                  <td>Sistem programări online, baze de date, panou intern de date</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600;color:oklch(0.25 0.02 50);">Predare &amp; Ghid video</td>
+                  <td>Prezentare ghidată a site-ului la livrare</td>
+                  <td>Ghid video de prezentare și administrare solicitări</td>
+                  <td>Sesiune video 1-la-1 + tutorial înregistrat (produse &amp; comenzi)</td>
+                  <td>Sesiuni de instruire echipă + documentație dedicată</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600;color:oklch(0.25 0.02 50);">Ajustări &amp; Revizuiri</td>
+                  <td>2 runde incluse</td>
+                  <td>3 runde incluse (variante de design din care să alegi)</td>
+                  <td>3 runde incluse</td>
+                  <td>Stabilite pe etape de dezvoltare</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600;color:oklch(0.25 0.02 50);">Asistență tehnică</td>
+                  <td>14 zile asistență gratuită</td>
+                  <td>14 zile asistență gratuită</td>
+                  <td>14 zile asistență gratuită</td>
+                  <td>30 zile asistență tehnică extinsă</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:600;color:oklch(0.25 0.02 50);">Pentru cine este ideal?</td>
+                  <td style="font-style:italic;color:oklch(0.42 0.02 50);">Afaceri la început de drum, specialiști independenți, lansări rapide</td>
+                  <td style="font-style:italic;color:oklch(0.42 0.02 50);">Firme de servicii, companii în creștere și afaceri locale care vor credibilitate solidă</td>
+                  <td style="font-style:italic;color:oklch(0.42 0.02 50);">Branduri locale, producători, retail cu vânzare de produse fizice</td>
+                  <td style="font-style:italic;color:oklch(0.42 0.02 50);">Afaceri cu fluxuri zilnice complexe, care vor să scape de tabele Excel</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p style="margin:14px 0 28px;font-size:13px;line-height:1.6;color:oklch(0.48 0.02 50);font-style:italic;text-align:center;">
+            Toate pachetele includ design 100% personalizat, optimizare completă pe mobil și asistență tehnică gratuită după lansare.
+          </p>
+
+          <!-- Maintenance & Ongoing Services Section -->
+          <div style="margin-top:24px;background:oklch(0.97 0.012 65);border:1px solid oklch(0.88 0.02 60);border-radius:16px;overflow:hidden;">
+            <button type="button" onClick="{{ toggleMaint }}" aria-expanded="{{ maintExpanded }}" style="display:flex;width:100%;justify-content:space-between;align-items:center;gap:16px;cursor:pointer;background:none;border:0;font-family:inherit;text-align:left;padding:18px 22px;" style-hover="background:oklch(0.955 0.015 65);">
+              <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                <span style="font-size:15.5px;font-weight:600;font-family:'Spectral',serif;color:oklch(0.22 0.02 50);">Servicii Lunare Opționale: Mentenanță Website &amp; Social Media</span>
+                <span style="font-size:13px;color:oklch(0.48 0.02 50);">(fără perioadă contractuală obligatorie)</span>
+              </div>
+              <span aria-hidden="true" style="width:32px;height:32px;border-radius:50%;background:oklch(0.91 0.03 55);color:oklch(0.45 0.12 38);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:600;flex:none;">{{ maintIcon }}</span>
             </button>
             <sc-if value="{{ isMaintOpen }}" hint-placeholder-val="{{ false }}">
-            <div style="display:flex;gap:24px;margin-top:18px;flex-wrap:wrap;">
-              <div style="flex:1;min-width:220px;background:oklch(0.94 0.025 55);border-radius:12px;padding:18px 20px;">
-                <p style="margin:0 0 4px;font-size:15px;font-weight:600;">Mentenanță Tehnică</p>
-                <p style="margin:0 0 10px;font-size:13.5px;line-height:1.55;color:oklch(0.42 0.02 50);">Actualizări, verificări de securitate, funcționare constantă a site-ului.</p>
-                <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}"><p style="margin:0;font-size:14.5px;font-weight:600;color:oklch(0.5 0.13 38);">150–350 lei/lună</p></sc-if>
-              </div>
-              <div style="flex:1;min-width:220px;background:oklch(0.94 0.025 55);border-radius:12px;padding:18px 20px;">
-                <p style="margin:0 0 4px;font-size:15px;font-weight:600;">Social Media</p>
-                <p style="margin:0 0 10px;font-size:13.5px;line-height:1.55;color:oklch(0.42 0.02 50);">Gestionarea prezenței pe rețelele sociale, pentru continuitatea brandului construit împreună.</p>
-                <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}"><p style="margin:0;font-size:14.5px;font-weight:600;color:oklch(0.5 0.13 38);">600–1200 lei/lună</p></sc-if>
+            <div style="padding:6px 22px 26px;border-top:1px solid oklch(0.91 0.015 60);">
+              <p style="margin:14px 0 22px;font-size:14px;line-height:1.6;color:oklch(0.42 0.02 50);">
+                După livrarea proiectului, poți alege o colaborare lunară flexibilă — te concentrezi pe activitatea ta, având siguranța că partea tehnică sau promovarea online sunt asigurate la standarde optime. Fără perioade contractuale obligatorii.
+              </p>
+
+              <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:18px;">
+                <!-- Card 1: Mentenanță Tehnică Website -->
+                <div style="background:oklch(0.985 0.006 75);border:1px solid oklch(0.89 0.02 60);border-radius:14px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;">
+                  <div>
+                    <h5 style="margin:0 0 6px;font-family:'Spectral',serif;font-size:19px;font-weight:600;color:oklch(0.22 0.02 50);">Mentenanță &amp; Suport Tehnic</h5>
+                    <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}">
+                      <div style="font-family:'Spectral',serif;font-size:21px;font-weight:600;color:oklch(0.5 0.13 38);margin:0 0 12px;">150 – 350 lei <span style="font-size:13px;font-weight:400;font-family:'Work Sans',sans-serif;color:oklch(0.48 0.02 50);">/ lună</span></div>
+                    </sc-if>
+                    <p style="margin:0 0 14px;font-size:13.5px;line-height:1.55;color:oklch(0.42 0.02 50);min-height:44px;">Ai siguranța că site-ul sau aplicația ta funcționează permanent fără întreruperi, este protejată și actualizată la zi.</p>
+                    <div style="display:flex;flex-direction:column;gap:9px;border-top:1px solid oklch(0.92 0.015 60);padding-top:14px;font-size:13px;color:oklch(0.35 0.02 50);">
+                      <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:oklch(0.55 0.13 38);font-weight:700;line-height:1.4;">✓</span> <span>Actualizări regulate de securitate și protecție anti-erori</span></div>
+                      <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:oklch(0.55 0.13 38);font-weight:700;line-height:1.4;">✓</span> <span>Monitorizare funcționare și copii de siguranță (backup)</span></div>
+                      <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:oklch(0.55 0.13 38);font-weight:700;line-height:1.4;">✓</span> <span>Mici modificări pe site la cerere (texte, poze, date contact)</span></div>
+                      <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:oklch(0.55 0.13 38);font-weight:700;line-height:1.4;">✓</span> <span>Asistență hosting și rezolvarea problemelor tehnice</span></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 2: Social Media & Promovare -->
+                <div style="background:oklch(0.985 0.006 75);border:1px solid oklch(0.89 0.02 60);border-radius:14px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;">
+                  <div>
+                    <h5 style="margin:0 0 6px;font-family:'Spectral',serif;font-size:19px;font-weight:600;color:oklch(0.22 0.02 50);">Gestiune Social Media &amp; Promovare</h5>
+                    <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}">
+                      <div style="font-family:'Spectral',serif;font-size:21px;font-weight:600;color:oklch(0.5 0.13 38);margin:0 0 12px;">600 – 1.200 lei <span style="font-size:13px;font-weight:400;font-family:'Work Sans',sans-serif;color:oklch(0.48 0.02 50);">/ lună</span></div>
+                    </sc-if>
+                    <p style="margin:0 0 14px;font-size:13.5px;line-height:1.55;color:oklch(0.42 0.02 50);min-height:44px;">Preluăm promovarea afacerii tale pe rețele și menținem conținutul proaspăt, cu grafică adaptată brandului tău.</p>
+                    <div style="display:flex;flex-direction:column;gap:9px;border-top:1px solid oklch(0.92 0.015 60);padding-top:14px;font-size:13px;color:oklch(0.35 0.02 50);">
+                      <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:oklch(0.55 0.13 38);font-weight:700;line-height:1.4;">✓</span> <span>Plan lunar de conținut și postări periodice pe rețele</span></div>
+                      <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:oklch(0.55 0.13 38);font-weight:700;line-height:1.4;">✓</span> <span>Grafică profesională pentru Instagram, Facebook sau LinkedIn</span></div>
+                      <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:oklch(0.55 0.13 38);font-weight:700;line-height:1.4;">✓</span> <span>Publicare de oferte, promoții și servicii noi pe canale</span></div>
+                      <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:oklch(0.55 0.13 38);font-weight:700;line-height:1.4;">✓</span> <span>Consistență vizuală și comunicare unitară cu identitatea site-ului</span></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             </sc-if>
@@ -251,7 +474,7 @@ header.is-scrolled img{height:40px !important;}
             <a href="#contact" style="display:inline-block;background:oklch(0.55 0.13 38);color:#fff;padding:16px 30px;border-radius:26px;font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap;" style-hover="background:oklch(0.49 0.13 38);">Cere o ofertă</a>
             <div>
               <button type="button" onClick="{{ openQuiz }}" style="display:inline-flex;align-items:center;gap:9px;cursor:pointer;background:none;border:0;padding:16px 0 0;font-family:inherit;">
-                <span style="font-size:14px;font-weight:600;color:oklch(0.48 0.13 38);text-decoration:underline;text-underline-offset:3px;">Nu ești sigur care pachet ți se potrivește? Fă testul</span>
+                <span style="font-size:14px;font-weight:600;color:oklch(0.48 0.13 38);text-decoration:underline;text-underline-offset:3px;">Află ce pachet ți se potrivește (ghid rapid)</span>
                 <span style="font-size:11.5px;font-weight:600;color:oklch(0.42 0.12 38);background:oklch(0.9 0.04 55);padding:3px 9px;border-radius:9px;white-space:nowrap;">30 sec</span>
               </button>
             </div>
@@ -267,32 +490,115 @@ header.is-scrolled img{height:40px !important;}
         </button>
         <sc-if value="{{ isDataOpen }}" hint-placeholder-val="{{ false }}">
         <div style="padding:0 clamp(18px,3vw,32px) clamp(28px,4vw,36px);">
-          <p style="font-size:16px;line-height:1.7;color:oklch(0.42 0.02 50);margin:0 0 32px;">O afacere eficientă ia decizii pe baza datelor, nu pe presupuneri. Curăț, structurez și transform informațiile brute în dashboard-uri și rapoarte clare, ca deciziile tale de business să se bazeze pe fapte.</p>
-          <div>
-            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 32px;padding:20px 0;">
-              <div style="flex:1;">
-                <p style="margin:0 0 6px;font-size:16px;font-weight:600;">1. Curățare &amp; Dashboard Interactiv</p>
-                <p style="margin:0;font-size:14.5px;line-height:1.6;color:oklch(0.42 0.02 50);">Curăț și structurez datele, livrez un dashboard interactiv pe care clientul îl poate filtra și explora singur. <span style="color:oklch(0.48 0.02 50);font-style:italic;">Proiect punctual.</span></p>
+          <p style="font-size:16px;line-height:1.7;color:oklch(0.42 0.02 50);margin:0 0 24px;">O afacere eficientă ia decizii pe baza datelor reale, nu pe presupuneri. Preluăm tabelele Excel dezorganizate, bazele de date sau exporturile din softurile tale, le curățăm de erori și le transformăm în dashboard-uri interactive și rapoarte clare pe care le poți explora singur.</p>
+
+          <!-- Interactive Demo Callout Banner -->
+          <div style="background:oklch(0.96 0.015 65);border:1px solid oklch(0.88 0.02 60);border-radius:14px;padding:16px 20px;margin-bottom:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="font-size:22px;flex:none;">📊</span>
+              <div>
+                <p style="margin:0 0 2px;font-size:15px;font-weight:600;color:oklch(0.22 0.02 50);">Vrei să testezi un model predictiv în practică?</p>
+                <p style="margin:0;font-size:13.5px;color:oklch(0.42 0.02 50);">Ajustează bugetul de promovare, recenziile și timpul de reacție pentru o estimare calculată live.</p>
               </div>
-              <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}"><p style="margin:0;font-size:17px;font-weight:600;color:oklch(0.5 0.13 38);white-space:nowrap;flex:none;">1000–2000 lei</p></sc-if>
             </div>
-            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 32px;padding:20px 0;border-top:1px solid oklch(0.9 0.02 60);">
-              <div style="flex:1;">
-                <p style="margin:0 0 6px;font-size:16px;font-weight:600;">2. Consolidare &amp; Dashboard Avansat</p>
-                <p style="margin:0;font-size:14.5px;line-height:1.6;color:oklch(0.42 0.02 50);">Pentru afaceri cu surse dezorganizate, consolidez totul într-un set de date structurat corect, cu dashboard pe metrici multiple. <span style="color:oklch(0.48 0.02 50);font-style:italic;">Proiect punctual, complex.</span></p>
-              </div>
-              <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}"><p style="margin:0;font-size:17px;font-weight:600;color:oklch(0.5 0.13 38);white-space:nowrap;flex:none;">2500–4000 lei</p></sc-if>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 32px;padding:20px 0;border-top:1px solid oklch(0.9 0.02 60);">
-              <div style="flex:1;">
-                <p style="margin:0 0 6px;font-size:16px;font-weight:600;">3. Raportare Recurentă</p>
-                <p style="margin:0;font-size:14.5px;line-height:1.6;color:oklch(0.42 0.02 50);">Clientul trimite date actualizate lunar, reîmprospătez dashboard-ul și livrez o interpretare scrisă a trendurilor. <span style="color:oklch(0.48 0.02 50);font-style:italic;">Abonament lunar.</span></p>
-              </div>
-              <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}"><p style="margin:0;font-size:17px;font-weight:600;color:oklch(0.5 0.13 38);white-space:nowrap;flex:none;">300–600 lei/lună</p></sc-if>
-            </div>
+            <a href="./pages/demo-predictor.dc.html" style="display:inline-flex;align-items:center;gap:8px;background:oklch(0.55 0.13 38);color:#fff;padding:10px 20px;border-radius:24px;font-family:inherit;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;" style-hover="background:oklch(0.49 0.13 38);">
+              <span>Testează predictorul live ↗</span>
+            </a>
           </div>
-          <div style="text-align:center;margin-top:36px;">
-            <a href="#contact" style="display:inline-block;background:oklch(0.55 0.13 38);color:#fff;padding:16px 30px;border-radius:26px;font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap;" style-hover="background:oklch(0.49 0.13 38);">Cere o ofertă</a>
+
+          <div style="margin-bottom:8px;">
+            <p style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:oklch(0.5 0.02 50);margin:0;">Opțiuni de Colaborare // Servicii de Date</p>
+          </div>
+
+          <!-- 3 Clean Editorial Tech Cards -->
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(270px, 1fr));gap:16px;margin-bottom:28px;">
+            
+            <!-- Card 1: Curățare & Dashboard Interactiv -->
+            <div class="pricing-card">
+              <div>
+                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px;">
+                  <h4 style="margin:0;font-family:'Spectral',serif;font-size:20px;font-weight:600;color:oklch(0.22 0.02 50);">Dashboard Interactiv</h4>
+                  <span style="font-size:11.5px;font-weight:600;color:oklch(0.42 0.02 50);background:oklch(0.93 0.025 60);padding:3px 8px;border-radius:6px;white-space:nowrap;flex:none;">Proiect Punctual</span>
+                </div>
+                <p style="margin:0 0 14px;font-size:13px;line-height:1.5;color:oklch(0.45 0.02 50);font-style:italic;">Date dintr-o singură sursă organizate vizual.</p>
+                <div style="margin:0 0 16px;padding:12px 0;border-top:1px solid oklch(0.91 0.015 60);border-bottom:1px solid oklch(0.91 0.015 60);">
+                  <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}">
+                    <div style="font-family:'Spectral',serif;font-size:22px;font-weight:600;color:oklch(0.5 0.13 38);">1.000 – 2.000 lei</div>
+                  </sc-if>
+                </div>
+                <p style="margin:0 0 14px;font-size:13.5px;line-height:1.55;color:oklch(0.38 0.02 50);">Ideal dacă ai vânzările, programările sau clienții într-un fișier Excel / CSV și vrei să-i poți filtra și explora grafic.</p>
+                <div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid oklch(0.92 0.015 60);padding-top:14px;font-size:13px;color:oklch(0.35 0.02 50);">
+                  <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:oklch(0.55 0.13 38);font-weight:700;line-height:1.4;">✓</span> <span>Curățare date de dubluri, valori lipsă și erori de tastare</span></div>
+                  <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:oklch(0.55 0.13 38);font-weight:700;line-height:1.4;">✓</span> <span>Definire indicatori cheie (vânzări medii, frecvență, volum)</span></div>
+                  <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:oklch(0.55 0.13 38);font-weight:700;line-height:1.4;">✓</span> <span>Dashboard interactiv livrat cu filtre pe date și categorii</span></div>
+                  <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:oklch(0.55 0.13 38);font-weight:700;line-height:1.4;">✓</span> <span>Ghid rapid de utilizare și explorare a datelor</span></div>
+                </div>
+              </div>
+              <div style="margin-top:18px;">
+                <a href="#contact" style="display:block;text-align:center;padding:10px 14px;border-radius:10px;border:1.5px solid oklch(0.88 0.02 60);color:oklch(0.35 0.02 50);text-decoration:none;font-size:13.5px;font-weight:600;" style-hover="border-color:oklch(0.55 0.13 38);color:oklch(0.55 0.13 38);background:oklch(0.96 0.02 55);">Alege Dashboard</a>
+              </div>
+            </div>
+
+            <!-- Card 2: Consolidare & Dashboard Avansat -->
+            <div class="pricing-card">
+              <div>
+                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px;">
+                  <h4 style="margin:0;font-family:'Spectral',serif;font-size:20px;font-weight:600;color:oklch(0.22 0.02 50);">Consolidare &amp; Analiză</h4>
+                  <span style="font-size:11.5px;font-weight:600;color:oklch(0.42 0.02 50);background:oklch(0.93 0.025 60);padding:3px 8px;border-radius:6px;white-space:nowrap;flex:none;">Surse Multiple</span>
+                </div>
+                <p style="margin:0 0 14px;font-size:13px;line-height:1.5;color:oklch(0.45 0.02 50);font-style:italic;">Integrare de date dispersate în softuri diferite.</p>
+                <div style="margin:0 0 16px;padding:12px 0;border-top:1px solid oklch(0.91 0.015 60);border-bottom:1px solid oklch(0.91 0.015 60);">
+                  <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}">
+                    <div style="font-family:'Spectral',serif;font-size:22px;font-weight:600;color:oklch(0.5 0.13 38);">2.500 – 4.000 lei</div>
+                  </sc-if>
+                </div>
+                <p style="margin:0 0 14px;font-size:13.5px;line-height:1.55;color:oklch(0.38 0.02 50);">Pentru afaceri cu informații în tabele separate, baze de date sau softuri de facturare care trebuie unificate coerent.</p>
+                <div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid oklch(0.92 0.015 60);padding-top:14px;font-size:13px;color:oklch(0.35 0.02 50);">
+                  <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:oklch(0.55 0.13 38);font-weight:700;line-height:1.4;">✓</span> <span>Unificare și normalizare a datelor din mai multe fișiere/softuri</span></div>
+                  <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:oklch(0.55 0.13 38);font-weight:700;line-height:1.4;">✓</span> <span>Analize de profitabilitate, sezonalitate și segmente de clienți</span></div>
+                  <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:oklch(0.55 0.13 38);font-weight:700;line-height:1.4;">✓</span> <span>Dashboard avansat cu ecrane multiple și metrici consolidate</span></div>
+                  <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:oklch(0.55 0.13 38);font-weight:700;line-height:1.4;">✓</span> <span>Sesiune video 1-la-1 de interpretare strategică a datelor</span></div>
+                </div>
+              </div>
+              <div style="margin-top:18px;">
+                <a href="#contact" style="display:block;text-align:center;padding:10px 14px;border-radius:10px;border:1.5px solid oklch(0.88 0.02 60);color:oklch(0.35 0.02 50);text-decoration:none;font-size:13.5px;font-weight:600;" style-hover="border-color:oklch(0.55 0.13 38);color:oklch(0.55 0.13 38);background:oklch(0.96 0.02 55);">Alege Analiză Avansată</a>
+              </div>
+            </div>
+
+            <!-- Card 3: Raportare Recurentă -->
+            <div class="pricing-card">
+              <div>
+                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px;">
+                  <h4 style="margin:0;font-family:'Spectral',serif;font-size:20px;font-weight:600;color:oklch(0.22 0.02 50);">Raportare Lunară</h4>
+                  <span style="font-size:11.5px;font-weight:600;color:oklch(0.42 0.02 50);background:oklch(0.93 0.025 60);padding:3px 8px;border-radius:6px;white-space:nowrap;flex:none;">Abonament Lunar</span>
+                </div>
+                <p style="margin:0 0 14px;font-size:13px;line-height:1.5;color:oklch(0.45 0.02 50);font-style:italic;">Monitorizare constantă fără efort intern.</p>
+                <div style="margin:0 0 16px;padding:12px 0;border-top:1px solid oklch(0.91 0.015 60);border-bottom:1px solid oklch(0.91 0.015 60);">
+                  <sc-if value="{{ showPrices }}" hint-placeholder-val="{{ true }}">
+                    <div style="font-family:'Spectral',serif;font-size:22px;font-weight:600;color:oklch(0.5 0.13 38);">300 – 600 lei <span style="font-size:13px;font-weight:400;font-family:'Work Sans',sans-serif;color:oklch(0.48 0.02 50);">/ lună</span></div>
+                  </sc-if>
+                </div>
+                <p style="margin:0 0 14px;font-size:13.5px;line-height:1.55;color:oklch(0.38 0.02 50);">Ne trimiți datele noi lunar; noi actualizăm dashboard-ul și îți livrăm o sinteză scrisă a concluziilor cheie.</p>
+                <div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid oklch(0.92 0.015 60);padding-top:14px;font-size:13px;color:oklch(0.35 0.02 50);">
+                  <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:oklch(0.55 0.13 38);font-weight:700;line-height:1.4;">✓</span> <span>Actualizare lunară a dashboard-ului cu datele noi</span></div>
+                  <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:oklch(0.55 0.13 38);font-weight:700;line-height:1.4;">✓</span> <span>Raport scris cu trenduri, anomalii și oportunități sesizate</span></div>
+                  <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:oklch(0.55 0.13 38);font-weight:700;line-height:1.4;">✓</span> <span>Monitorizarea obiectivelor de afaceri de la lună la lună</span></div>
+                  <div style="display:flex;gap:8px;align-items:flex-start;"><span style="color:oklch(0.55 0.13 38);font-weight:700;line-height:1.4;">✓</span> <span>Disponibilitate pentru întrebări și suport decizional</span></div>
+                </div>
+              </div>
+              <div style="margin-top:18px;">
+                <a href="#contact" style="display:block;text-align:center;padding:10px 14px;border-radius:10px;border:1.5px solid oklch(0.88 0.02 60);color:oklch(0.35 0.02 50);text-decoration:none;font-size:13.5px;font-weight:600;" style-hover="border-color:oklch(0.55 0.13 38);color:oklch(0.55 0.13 38);background:oklch(0.96 0.02 55);">Alege Raportare</a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom CTA & Case Study Link -->
+          <div style="text-align:center;margin-top:28px;">
+            <a href="#contact" style="display:inline-block;background:oklch(0.55 0.13 38);color:#fff;padding:16px 30px;border-radius:26px;font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap;" style-hover="background:oklch(0.49 0.13 38);">Discută despre datele tale</a>
+            <div style="margin-top:14px;">
+              <a href="./pages/proiect-analiza-date.dc.html" style="font-size:14px;font-weight:600;color:oklch(0.48 0.13 38);text-decoration:underline;text-underline-offset:3px;">Vezi studiul de caz detaliat: Analiză predictivă conversii e-commerce →</a>
+            </div>
           </div>
         </div>
         </sc-if>
@@ -327,8 +633,8 @@ header.is-scrolled img{height:40px !important;}
           <div style="flex:0 0 auto;width:min(246px,100%);height:140px;border-radius:11px;background:oklch(0.985 0.006 75);border:1px solid oklch(0.89 0.02 60);box-shadow:0 6px 16px rgba(60,45,25,0.05);padding:13px;display:flex;flex-direction:column;justify-content:center;gap:8px;opacity:{{ p1.contentOpacity }};transform:{{ p1.contentTransform }};transition:opacity 0.4s ease-out, transform 0.4s ease-out;">
             <sc-if value="{{ p1.shown }}" hint-placeholder-val="{{ true }}">
               <div style="align-self:flex-start;max-width:82%;padding:7px 11px;border-radius:12px 12px 12px 3px;background:oklch(0.92 0.02 60);color:oklch(0.35 0.02 50);font-size:11px;line-height:1.35;animation:procesPop 0.18s ease-out both;">Cu ce te pot ajuta?</div>
-              <div style="align-self:flex-end;max-width:86%;padding:7px 11px;border-radius:12px 12px 3px 12px;background:oklch(0.55 0.13 38);color:#fff;font-size:11px;line-height:1.35;animation:procesPop 0.18s ease-out both;animation-delay:0.09s;">Un salon, fără site încă</div>
-              <div style="align-self:flex-end;max-width:86%;padding:7px 11px;border-radius:12px 12px 3px 12px;background:oklch(0.55 0.13 38);color:#fff;font-size:11px;line-height:1.35;animation:procesPop 0.18s ease-out both;animation-delay:0.18s;">Vreau mai multe programări</div>
+              <div style="align-self:flex-end;max-width:86%;padding:7px 11px;border-radius:12px 12px 3px 12px;background:oklch(0.55 0.13 38);color:#fff;font-size:11px;line-height:1.35;animation:procesPop 0.18s ease-out both;animation-delay:0.09s;">O afacere nouă, fără site încă</div>
+              <div style="align-self:flex-end;max-width:86%;padding:7px 11px;border-radius:12px 12px 3px 12px;background:oklch(0.55 0.13 38);color:#fff;font-size:11px;line-height:1.35;animation:procesPop 0.18s ease-out both;animation-delay:0.18s;">Vrem să atragem mai mulți clienți</div>
             </sc-if>
           </div>
         </div>
@@ -480,7 +786,7 @@ header.is-scrolled img{height:40px !important;}
                 <div style="width:6px;height:6px;border-radius:50%;background:oklch(0.85 0.02 60);"></div>
                 <div style="width:6px;height:6px;border-radius:50%;background:oklch(0.85 0.02 60);"></div>
                 <div style="width:6px;height:6px;border-radius:50%;background:oklch(0.85 0.02 60);"></div>
-                <div style="flex:1;margin-left:5px;padding:3px 9px;border-radius:9px;background:#fff;border:1px solid oklch(0.91 0.02 60);font-size:10px;color:oklch(0.5 0.02 50);">anelis.ro</div>
+                <div style="flex:1;margin-left:5px;padding:3px 9px;border-radius:9px;background:#fff;border:1px solid oklch(0.91 0.02 60);font-size:10px;color:oklch(0.5 0.02 50);">site-ul-tau.ro</div>
               </div>
               <div style="flex:1;padding:11px;display:flex;flex-direction:column;gap:8px;">
                 <div style="height:11px;border-radius:4px;background:oklch(0.55 0.13 38);transform-origin:left;animation:procesGrowX 0.18s ease-out both;animation-delay:0.06s;"></div>
@@ -507,56 +813,53 @@ header.is-scrolled img{height:40px !important;}
 
       <div style="display:flex;flex-direction:column;">
         <div style="display:flex;flex-wrap:wrap;flex-direction:row;gap:clamp(26px,4vw,64px);align-items:center;padding:clamp(34px,4.5vw,48px) 0;border-top:1px solid oklch(0.9 0.02 60);">
-          <div style="flex:1.25 1 300px;min-width:0;border-radius:16px;overflow:hidden;background:oklch(0.98 0.006 75);border:1px solid oklch(0.9 0.02 60);transition:box-shadow .35s ease, transform .35s ease;" style-hover="box-shadow:0 18px 40px rgba(43,35,24,0.13);transform:translateY(-3px);">
+          <a href="./pages/proiect-physiobaby.dc.html" style="display:block;flex:1.25 1 300px;min-width:0;border-radius:16px;overflow:hidden;background:oklch(0.98 0.006 75);border:1px solid oklch(0.9 0.02 60);transition:box-shadow .35s ease, transform .35s ease;cursor:pointer;text-decoration:none;" style-hover="box-shadow:0 18px 40px rgba(43,35,24,0.13);transform:translateY(-3px);">
             <div style="width:100%;aspect-ratio:16/10;">
-              <image-slot id="proj-physiobaby" shape="rect" role="img" aria-label="PhysioBaby — pagina Acasă, design final" placeholder="PhysioBaby — pagina Acasă" src="./physiobaby-acasa.png"></image-slot>
+              <image-slot id="proj-physiobaby" shape="rect" role="img" aria-label="PhysioBaby — pagina Acasă, design final" placeholder="PhysioBaby — pagina Acasă" src="./assets/images/physiobaby-acasa.png"></image-slot>
             </div>
-          </div>
+          </a>
           <div style="flex:1 1 290px;min-width:0;">
-            <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:14px;flex-wrap:wrap;">
-              <span style="font-family:'Spectral',serif;font-size:16px;color:oklch(0.55 0.08 45);">01</span>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;">
               <p style="margin:0;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:oklch(0.45 0.12 38);">Website &amp; Identitate Vizuală</p>
-              <span style="font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:oklch(0.42 0.12 38);background:oklch(0.92 0.04 55);padding:5px 11px;border-radius:20px;">Recuperare Pediatrică</span>
+              <span style="font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:oklch(0.42 0.02 50);background:oklch(0.94 0.025 55);border:1px solid oklch(0.88 0.02 60);padding:4px 10px;border-radius:20px;">Recuperare Pediatrică</span>
             </div>
             <h3 style="margin:0 0 14px;font-family:'Spectral',serif;font-weight:500;font-size:clamp(23px,2.8vw,28px);line-height:1.25;color:oklch(0.22 0.02 50);text-wrap:pretty;">PhysioBaby</h3>
             <p style="margin:0 0 24px;font-size:16.5px;line-height:1.65;color:oklch(0.42 0.02 50);max-width:440px;text-wrap:pretty;">Prezența online a unui cabinet nou de kinetoterapie pediatrică, gândită să transforme vizitatorii îngrijorați în programări.</p>
-            <a href="./Proiect%20PhysioBaby.dc.html" style="display:inline-flex;align-items:center;min-height:44px;font-size:15px;font-weight:600;color:oklch(0.45 0.12 38);text-decoration:none;border-bottom:1.5px solid oklch(0.78 0.08 45);padding:10px 0 5px;" style-hover="border-bottom-color:oklch(0.55 0.13 38);">Vezi proiectul →</a>
+            <a href="./pages/proiect-physiobaby.dc.html" style="display:inline-flex;align-items:center;min-height:44px;font-size:15px;font-weight:600;color:oklch(0.45 0.12 38);text-decoration:none;border-bottom:1.5px solid oklch(0.78 0.08 45);padding:10px 0 5px;" style-hover="border-bottom-color:oklch(0.55 0.13 38);">Vezi proiectul →</a>
           </div>
         </div>
 
         <div style="display:flex;flex-wrap:wrap;flex-direction:row-reverse;gap:clamp(26px,4vw,64px);align-items:center;padding:clamp(34px,4.5vw,48px) 0;border-top:1px solid oklch(0.9 0.02 60);">
-          <div style="flex:1.25 1 300px;min-width:0;border-radius:16px;overflow:hidden;background:oklch(0.98 0.006 75);border:1px solid oklch(0.9 0.02 60);transition:box-shadow .35s ease, transform .35s ease;" style-hover="box-shadow:0 18px 40px rgba(43,35,24,0.13);transform:translateY(-3px);">
+          <a href="./pages/proiect-kinetocare.dc.html" style="display:block;flex:1.25 1 300px;min-width:0;border-radius:16px;overflow:hidden;background:oklch(0.98 0.006 75);border:1px solid oklch(0.9 0.02 60);transition:box-shadow .35s ease, transform .35s ease;cursor:pointer;text-decoration:none;" style-hover="box-shadow:0 18px 40px rgba(43,35,24,0.13);transform:translateY(-3px);">
             <div style="width:100%;aspect-ratio:16/10;">
-              <image-slot id="proj-kinetocare" shape="rect" role="img" aria-label="KinetoCare — calendarul terapeutului, plin de programări" placeholder="KinetoCare — calendar terapeut" src="./kinetocare-calendar-terapeut.png"></image-slot>
+              <image-slot id="proj-kinetocare" shape="rect" role="img" aria-label="KinetoCare — calendarul terapeutului, plin de programări" placeholder="KinetoCare — calendar terapeut" src="./assets/images/kinetocare-calendar-terapeut.png"></image-slot>
             </div>
-          </div>
+          </a>
           <div style="flex:1 1 290px;min-width:0;">
-            <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:14px;flex-wrap:wrap;">
-              <span style="font-family:'Spectral',serif;font-size:16px;color:oklch(0.55 0.08 45);">02</span>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;">
               <p style="margin:0;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:oklch(0.45 0.12 38);">Platformă Clinică &amp; Gestiune Medicală</p>
-              <span style="font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:oklch(0.42 0.02 50);border:1px solid oklch(0.82 0.02 60);padding:4px 10px;border-radius:20px;">Sistem Clinic Integrat</span>
+              <span style="font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:oklch(0.42 0.02 50);background:oklch(0.94 0.025 55);border:1px solid oklch(0.88 0.02 60);padding:4px 10px;border-radius:20px;">Sistem Clinic Integrat</span>
             </div>
             <h3 style="margin:0 0 14px;font-family:'Spectral',serif;font-weight:500;font-size:clamp(23px,2.8vw,28px);line-height:1.25;color:oklch(0.22 0.02 50);text-wrap:pretty;">KinetoCare</h3>
             <p style="margin:0 0 24px;font-size:16.5px;line-height:1.65;color:oklch(0.42 0.02 50);max-width:440px;text-wrap:pretty;">Platformă completă de digitalizare pentru clinici de recuperare medicală: programări, evoluție clinică și statistici într-un singur loc.</p>
-            <a href="./Proiect%20KinetoCare.dc.html" style="display:inline-flex;align-items:center;min-height:44px;font-size:15px;font-weight:600;color:oklch(0.45 0.12 38);text-decoration:none;border-bottom:1.5px solid oklch(0.78 0.08 45);padding:10px 0 5px;" style-hover="border-bottom-color:oklch(0.55 0.13 38);">Vezi proiectul →</a>
+            <a href="./pages/proiect-kinetocare.dc.html" style="display:inline-flex;align-items:center;min-height:44px;font-size:15px;font-weight:600;color:oklch(0.45 0.12 38);text-decoration:none;border-bottom:1.5px solid oklch(0.78 0.08 45);padding:10px 0 5px;" style-hover="border-bottom-color:oklch(0.55 0.13 38);">Vezi proiectul →</a>
           </div>
         </div>
 
         <div style="display:flex;flex-wrap:wrap;flex-direction:row;gap:clamp(26px,4vw,64px);align-items:center;padding:clamp(34px,4.5vw,48px) 0;border-top:1px solid oklch(0.9 0.02 60);border-bottom:1px solid oklch(0.9 0.02 60);">
-          <div style="flex:1.25 1 300px;min-width:0;border-radius:16px;overflow:hidden;background:oklch(0.98 0.006 75);border:1px solid oklch(0.9 0.02 60);transition:box-shadow .35s ease, transform .35s ease;" style-hover="box-shadow:0 18px 40px rgba(43,35,24,0.13);transform:translateY(-3px);">
+          <a href="./pages/proiect-analiza-date.dc.html" style="display:block;flex:1.25 1 300px;min-width:0;border-radius:16px;overflow:hidden;background:oklch(0.98 0.006 75);border:1px solid oklch(0.9 0.02 60);transition:box-shadow .35s ease, transform .35s ease;cursor:pointer;text-decoration:none;" style-hover="box-shadow:0 18px 40px rgba(43,35,24,0.13);transform:translateY(-3px);">
             <div style="width:100%;aspect-ratio:16/10;">
-              <image-slot id="proj-bigdata" shape="rect" role="img" aria-label="Dashboard de analiză de date pentru afaceri" placeholder="Dashboard analiză date" src="./analiza-predictiva-thumb.png"></image-slot>
+              <image-slot id="proj-bigdata" shape="rect" role="img" aria-label="Dashboard de analiză de date pentru afaceri" placeholder="Dashboard analiză date" src="./assets/images/analiza-predictiva-thumb.png"></image-slot>
             </div>
-          </div>
+          </a>
           <div style="flex:1 1 290px;min-width:0;">
-            <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:14px;flex-wrap:wrap;">
-              <span style="font-family:'Spectral',serif;font-size:16px;color:oklch(0.55 0.08 45);">03</span>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;">
               <p style="margin:0;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:oklch(0.45 0.12 38);">Analiză Date pentru Afaceri</p>
-              <span style="font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:oklch(0.42 0.02 50);border:1px solid oklch(0.82 0.02 60);padding:4px 10px;border-radius:20px;">E-Commerce &amp; Vânzări</span>
+              <span style="font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:oklch(0.42 0.02 50);background:oklch(0.94 0.025 55);border:1px solid oklch(0.88 0.02 60);padding:4px 10px;border-radius:20px;">E-Commerce &amp; Vânzări</span>
             </div>
             <h3 style="margin:0 0 14px;font-family:'Spectral',serif;font-weight:500;font-size:clamp(23px,2.8vw,28px);line-height:1.25;color:oklch(0.22 0.02 50);text-wrap:pretty;">Analiză Predictivă: Factori de Conversie Magazin Online</h3>
             <p style="margin:0 0 24px;font-size:16.5px;line-height:1.65;color:oklch(0.42 0.02 50);max-width:440px;text-wrap:pretty;">Ce factori influențează cel mai mult decizia de cumpărare a vizitatorilor: cost transport, recenzii, viteză de încărcare și metode de plată.</p>
-            <a href="./Proiect%20Analiza%20Date.dc.html" style="display:inline-flex;align-items:center;min-height:44px;font-size:15px;font-weight:600;color:oklch(0.45 0.12 38);text-decoration:none;border-bottom:1.5px solid oklch(0.78 0.08 45);padding:10px 0 5px;" style-hover="border-bottom-color:oklch(0.55 0.13 38);">Vezi proiectul →</a>
+            <a href="./pages/proiect-analiza-date.dc.html" style="display:inline-flex;align-items:center;min-height:44px;font-size:15px;font-weight:600;color:oklch(0.45 0.12 38);text-decoration:none;border-bottom:1.5px solid oklch(0.78 0.08 45);padding:10px 0 5px;" style-hover="border-bottom-color:oklch(0.55 0.13 38);">Vezi proiectul →</a>
           </div>
         </div>
       </div>
@@ -592,7 +895,7 @@ header.is-scrolled img{height:40px !important;}
             <div aria-hidden="true" style="width:48px;height:48px;border-radius:50%;flex:none;background:oklch(0.9 0.04 55);color:oklch(0.42 0.12 38);display:flex;align-items:center;justify-content:center;font-family:'Spectral',serif;font-weight:600;font-size:18px;">CC</div>
             <div>
               <p style="margin:0;font-size:15px;font-weight:600;">Claudia Cerednicenco</p>
-              <p style="margin:0;font-size:13.5px;"><a href="./Proiect%20KinetoCare.dc.html" style="color:oklch(0.5 0.02 50);text-decoration:underline;text-underline-offset:2px;">KinetoCare →</a></p>
+              <p style="margin:0;font-size:13.5px;"><a href="./pages/proiect-kinetocare.dc.html" style="color:oklch(0.5 0.02 50);text-decoration:underline;text-underline-offset:2px;">KinetoCare →</a></p>
             </div>
           </div>
         </div>
@@ -679,12 +982,15 @@ header.is-scrolled img{height:40px !important;}
           <div style="text-align:center;">
             <a href="https://www.linkedin.com/in/anelis-gheorghias/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:oklch(0.45 0.12 38);font-weight:600;text-decoration:none;" style-hover="text-decoration:underline;">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-              Conectează-te pe LinkedIn
+              Profilul meu de LinkedIn
             </a>
           </div>
         </div>
 
-        <form onSubmit="{{ handleSubmit }}" style="flex:1.3 1 320px;display:flex;flex-direction:column;gap:16px;">
+        <form onSubmit="{{ handleSubmit }}" action="https://api.web3forms.com/submit" method="POST" style="flex:1.3 1 320px;display:flex;flex-direction:column;gap:16px;">
+          <input type="hidden" name="access_key" value="a3455d82-4796-435f-880f-09ba101d97cf" />
+          <input type="hidden" name="subject" value="Mesaj nou primit de pe portofoliu" />
+          <input type="hidden" name="from_name" value="Portofoliu Anelis" />
           <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
             <div role="status" style="background:oklch(0.94 0.025 55);border-radius:14px;padding:32px;text-align:center;">
               <div style="font-size:24px;margin-bottom:8px;">✓</div>
@@ -697,7 +1003,7 @@ header.is-scrolled img{height:40px !important;}
           <div style="display:flex;flex-wrap:wrap;gap:16px;">
             <div style="flex:1 1 150px;display:flex;flex-direction:column;gap:6px;">
               <label for="contact-nume" style="font-size:13.5px;font-weight:600;color:oklch(0.35 0.02 50);">Nume</label>
-              <input id="contact-nume" name="nume" value="{{ formName }}" onChange="{{ setFormName }}" required type="text" placeholder="Numele tău" style="padding:12px 14px;border-radius:10px;border:1px solid oklch(0.85 0.02 60);font-size:15px;background:oklch(0.98 0.006 75);"/>
+              <input id="contact-nume" name="name" value="{{ formName }}" onChange="{{ setFormName }}" required type="text" placeholder="Numele tău" style="padding:12px 14px;border-radius:10px;border:1px solid oklch(0.85 0.02 60);font-size:15px;background:oklch(0.98 0.006 75);"/>
             </div>
             <div style="flex:1 1 150px;display:flex;flex-direction:column;gap:6px;">
               <label for="contact-email" style="font-size:13.5px;font-weight:600;color:oklch(0.35 0.02 50);">Email</label>
@@ -706,7 +1012,7 @@ header.is-scrolled img{height:40px !important;}
           </div>
           <div style="display:flex;flex-direction:column;gap:6px;">
             <label for="contact-mesaj" style="font-size:13.5px;font-weight:600;color:oklch(0.35 0.02 50);">Descriere proiect</label>
-            <textarea id="contact-mesaj" name="mesaj" value="{{ formMsg }}" onChange="{{ setFormMsg }}" required placeholder="Spune-mi pe scurt despre afacerea ta și ce ai nevoie." rows="4" style="padding:12px 14px;border-radius:10px;border:1px solid oklch(0.85 0.02 60);font-size:15px;background:oklch(0.98 0.006 75);resize:vertical;"></textarea>
+            <textarea id="contact-mesaj" name="message" value="{{ formMsg }}" onChange="{{ setFormMsg }}" required placeholder="Spune-mi pe scurt despre afacerea ta și ce ai nevoie." rows="4" style="padding:12px 14px;border-radius:10px;border:1px solid oklch(0.85 0.02 60);font-size:15px;background:oklch(0.98 0.006 75);resize:vertical;"></textarea>
           </div>
 
           <div role="group" aria-label="Ai găsit deja pachetul care te interesează?" style="display:flex;flex-direction:column;gap:10px;padding-top:6px;">
@@ -722,19 +1028,19 @@ header.is-scrolled img{height:40px !important;}
             <label for="contact-pachet" style="font-size:13.5px;font-weight:600;color:oklch(0.35 0.02 50);">Pachet de interes</label>
             <select id="contact-pachet" name="pachet" value="{{ selectedPackage }}" onChange="{{ setSelectedPackage }}" style="padding:12px 14px;border-radius:10px;border:1px solid oklch(0.85 0.02 60);font-size:15px;background:oklch(0.98 0.006 75);">
               <option value="">Alege un pachet</option>
-              <option value="Starter">Starter (1500–2500 lei)</option>
-              <option value="Business Premium">Business Premium (2500–4000 lei)</option>
-              <option value="Website E-Commerce">Website E-Commerce (4000–7000 lei)</option>
-              <option value="Ecosistem Digital">Ecosistem Digital (de la 6000 lei)</option>
+              <option value="Starter">Starter (1.500–2.500 lei)</option>
+              <option value="Business Premium">Business Premium (2.500–4.000 lei)</option>
+              <option value="Website E-Commerce">Website E-Commerce (4.000–7.000 lei)</option>
+              <option value="Ecosistem Digital">Ecosistem Digital (de la 6.000 lei)</option>
             </select>
           </div>
           <div style="display:flex;flex-direction:column;gap:6px;">
             <label for="contact-buget" style="font-size:13.5px;font-weight:600;color:oklch(0.35 0.02 50);">Buget estimativ</label>
-            <input id="contact-buget" name="buget" type="text" placeholder="ex. 2500–4000 lei" style="padding:12px 14px;border-radius:10px;border:1px solid oklch(0.85 0.02 60);font-size:15px;background:oklch(0.98 0.006 75);"/>
+            <input id="contact-buget" name="buget" value="{{ formBudget }}" onChange="{{ setFormBudget }}" type="text" placeholder="ex. 2500–4000 lei" style="padding:12px 14px;border-radius:10px;border:1px solid oklch(0.85 0.02 60);font-size:15px;background:oklch(0.98 0.006 75);"/>
           </div>
           </sc-if>
 
-          <button type="submit" style="margin-top:6px;background:oklch(0.55 0.13 38);color:#fff;padding:16px 24px;border-radius:12px;border:none;font-size:15.5px;font-weight:600;cursor:pointer;" style-hover="background:oklch(0.49 0.13 38);">Trimite mesajul</button>
+          <button type="submit" disabled="{{ isSubmitting }}" style="margin-top:6px;background:oklch(0.55 0.13 38);color:#fff;padding:16px 24px;border-radius:12px;border:none;font-size:15.5px;font-weight:600;cursor:pointer;" style-hover="background:oklch(0.49 0.13 38);">{{ submitBtnText }}</button>
           <p style="margin:2px 0 0;font-size:13.5px;line-height:1.55;color:oklch(0.45 0.02 50);">Răspund în cel mult 24 de ore, cu o propunere concretă. Fără obligații.</p>
           </sc-if>
         </form>
@@ -783,45 +1089,84 @@ header.is-scrolled img{height:40px !important;}
   onScroll();
 
   document.addEventListener('click', function(e){
+    var mobileNav = document.querySelector('details.mobile-nav');
+    if (mobileNav && mobileNav.hasAttribute('open')) {
+      if (!mobileNav.contains(e.target) || e.target.closest('.mobile-nav nav a')) {
+        mobileNav.removeAttribute('open');
+      }
+    }
     var link = e.target.closest('a[href="#top"]');
     if (!link) return;
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (window.history && window.history.pushState) {
+      window.history.pushState(null, '', '#top');
+    } else {
+      window.location.hash = '#top';
+    }
   });
 })();
 </script>
 <script type="text/x-dc" data-dc-script data-props="{&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;40745782060&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;loopAnimation&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;}}">
 const QUIZ_PACKAGES = [
-  { name: 'Starter', desc: 'O pagină de prezentare simplă, rapidă, cu ce ai nevoie ca să fii găsit online.', price: '1500–2500 lei' },
-  { name: 'Business Premium', desc: 'Site cu strategie completă, pagini multiple și integrări, gândit să transforme vizitatorii în clienți.', price: '2500–4000 lei' },
-  { name: 'Website E-Commerce', desc: 'Magazin online complet, de la prezentarea produselor până la finalizarea comenzii.', price: '4000–7000 lei' },
-  { name: 'Ecosistem Digital', desc: 'Site plus funcționalități custom: programări, panouri de control, portal clienți.', price: 'de la 6000 lei' }
+  { 
+    name: 'Starter', 
+    desc: 'Ți se potrivește o prezentare compactă și modernă pe o singură pagină fluidă. Este soluția ideală pentru o lansare rapidă, cu o investiție optimă și tot ce ai nevoie pentru a fi găsit online.', 
+    price: '1.500 – 2.500 lei' 
+  },
+  { 
+    name: 'Business Premium', 
+    desc: 'Pentru obiectivele tale, cea mai bună alegere este un site complet multi-pagină, cu pagini dedicate fiecărui serviciu, astfel încât clienții din orașul tău să te găsească ușor pe Google.', 
+    price: '2.500 – 4.000 lei' 
+  },
+  { 
+    name: 'Website E-Commerce', 
+    desc: 'Ai nevoie de un magazin online complet și securizat, configurat de la A la Z cu plăți prin card, generare automată de livrare și un catalog ușor de administrat.', 
+    price: '4.000 – 7.000 lei' 
+  },
+  { 
+    name: 'Ecosistem Digital', 
+    desc: 'Pentru nevoile afacerii tale, soluția optimă este o platformă web custom (portal dedicat, sistem avansat de programări sau panou intern de date) care să elimine munca manuală și tabelele Excel.', 
+    price: 'de la 6.000 lei' 
+  }
 ];
 const QUIZ_QUESTIONS = [
-  { question: 'Ce descrie cel mai bine situația ta acum?', options: [
-    { label: 'Nu am niciunul încă', pkg: 0 },
-    { label: 'Am unul, dar nu-mi aduce clienți', pkg: 1 },
-    { label: 'Vreau să vând produse online', pkg: 2 },
-    { label: 'Am nevoie de un sistem, nu doar un site', pkg: 3 }
-  ]},
-  { question: 'Ce vrei să facă vizitatorii pe site?', options: [
-    { label: 'Să mă contacteze rapid', pkg: 0 },
-    { label: 'Să înțeleagă serviciile și să programeze o discuție', pkg: 1 },
-    { label: 'Să cumpere direct din site', pkg: 2 },
-    { label: 'Să folosească un cont sau dashboard propriu', pkg: 3 }
-  ]},
-  { question: 'Cât de complex e ce ai în minte?', options: [
-    { label: 'Simplu, o carte de vizită digitală', pkg: 0 },
-    { label: 'Prezentare detaliată, optimizată pentru Google', pkg: 1 },
-    { label: 'Magazin cu plăți și livrare', pkg: 2 },
-    { label: 'Funcționalități custom (programări, baze de date)', pkg: 3 }
-  ]},
-  { question: 'Care e bugetul tău aproximativ?', options: [
-    { label: 'Sub 2500 lei', pkg: 0 },
-    { label: '2500–4000 lei', pkg: 1 },
-    { label: '4000–7000 lei', pkg: 2 },
-    { label: 'Peste 7000 lei', pkg: 3 }
-  ]}
+  { 
+    question: 'Ce tip de prezență online cauți pentru afacerea ta?', 
+    options: [
+      { label: 'O pagină de prezentare simplă și curată (carte de vizită digitală)', pkg: 0 },
+      { label: 'Un site complet de prezentare, cu pagini dedicate pentru fiecare serviciu', pkg: 1 },
+      { label: 'Un magazin online unde să vând produse cu plata cu cardul', pkg: 2 },
+      { label: 'O platformă sau un portal web custom (programări, conturi, gestiune date)', pkg: 3 }
+    ]
+  },
+  { 
+    question: 'Care este acțiunea principală pe care vrei să o facă un vizitator?', 
+    options: [
+      { label: 'Să mă sune sau să-mi scrie direct pe WhatsApp / email', pkg: 0 },
+      { label: 'Să descopere serviciile în detaliu și să ceară o ofertă sau o programare', pkg: 1 },
+      { label: 'Să răsfoiască catalogul, să pună produse în coș și să cumpere online', pkg: 2 },
+      { label: 'Să se autentifice într-un cont, să facă rezervări sau să acceseze un panou dedicat', pkg: 3 }
+    ]
+  },
+  { 
+    question: 'Cum este structurată oferta sau activitatea ta în prezent?', 
+    options: [
+      { label: 'Am o ofertă compactă — vreau totul concentrat pe o singură pagină fluidă', pkg: 0 },
+      { label: 'Am mai multe servicii distincte și vreau pagini separate pentru fiecare', pkg: 1 },
+      { label: 'Am un catalog de produse fizice sau digitale cu stocuri și variante', pkg: 2 },
+      { label: 'Am fluxuri zilnice complexe pe care vreau să le digitalizez și simplific', pkg: 3 }
+    ]
+  },
+  { 
+    question: 'Ce contează cel mai mult pentru tine în această etapă?', 
+    options: [
+      { label: 'Lansare rapidă cu un buget optim (1.500 – 2.500 lei)', pkg: 0 },
+      { label: 'Credibilitate solidă și clienți noi din căutări pe Google (2.500 – 4.000 lei)', pkg: 1 },
+      { label: 'Un flux complet de vânzare online, fără bătăi de cap (4.000 – 7.000 lei)', pkg: 2 },
+      { label: 'O soluție adaptată 100% nevoilor mele specifice (de la 6.000 lei)', pkg: 3 }
+    ]
+  }
 ];
 
 const NOTIFS = [
@@ -883,12 +1228,18 @@ const PROCES_STEPS = [
   { num: '5', title: 'Lansare & Mentenanță', desc: 'Lansăm site-ul și rămân alături de tine pentru actualizări.' }
 ];
 
+// Pentru a primi mesajele din formular direct pe adresa ta de email fără backend:
+// 1. Intră pe https://web3forms.com (100% gratuit, 250 mesaje/lună, fără card bancar).
+// 2. Introdu adresa ta de email și apasă 'Create Access Key'.
+// 3. Pune cheia primită pe email între ghilimelele de mai jos:
+const WEB3FORMS_ACCESS_KEY = 'a3455d82-4796-435f-880f-09ba101d97cf';
+
 class Component extends DCLogic {
   state = {
-    isWebOpen: true, isDataOpen: false, isMaintOpen: false, submitted: false,
+    isWebOpen: true, isDataOpen: false, isMaintOpen: false, submitted: false, isSubmitting: false,
     quizOpen: false, quizStep: 0, quizAnswers: [], knowsPackage: null, selectedPackage: '',
     t: 0, procesVisible: PROCES_STEPS.map(() => false),
-    formName: '', formEmail: '', formMsg: ''
+    formName: '', formEmail: '', formMsg: '', formBudget: ''
   };
 
   componentDidMount() {
@@ -949,6 +1300,37 @@ class Component extends DCLogic {
   setFormName = (e) => this.setState({ formName: e.target.value });
   setFormEmail = (e) => this.setState({ formEmail: e.target.value });
   setFormMsg = (e) => this.setState({ formMsg: e.target.value });
+  setFormBudget = (e) => this.setState({ formBudget: e.target.value });
+
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    this.setState({ isSubmitting: true });
+    if (WEB3FORMS_ACCESS_KEY) {
+      try {
+        const formData = new FormData();
+        formData.append('access_key', WEB3FORMS_ACCESS_KEY);
+        formData.append('subject', `Mesaj nou portofoliu: ${this.state.formName || 'Client nou'}`);
+        formData.append('from_name', this.state.formName || 'Portofoliu Anelis');
+        formData.append('name', this.state.formName);
+        formData.append('email', this.state.formEmail);
+        formData.append('pachet', this.state.selectedPackage || (this.state.knowsPackage === false ? 'Discuție inițială (fără pachet)' : 'Nespecificat'));
+        formData.append('buget', this.state.formBudget || 'Nespecificat');
+        formData.append('message', this.state.formMsg);
+
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!result.success) {
+          console.warn('Web3Forms response:', result);
+        }
+      } catch (err) {
+        console.error('Eroare la trimiterea formularului:', err);
+      }
+    }
+    this.setState({ submitted: true, isSubmitting: false });
+  };
 
   // Scroll-triggered reveal: no scroll listeners, no pinning, no forced scrolling.
   setProcesRef = (node) => {
@@ -995,34 +1377,76 @@ class Component extends DCLogic {
   buildMockup(t) {
     const h = React.createElement;
     const chromeOpacity = mSeg(t, 0, 0.08);
-    const wire = (it) => h('div', { key: it.key + '-w', style: {
-      position: 'absolute', left: qw(it.x), top: qw(it.y), width: qw(it.w), height: qw(it.h),
-      border: `${qw(1.5)} solid oklch(0.8 0.02 60)`, borderRadius: qw(it.r), background: 'transparent',
-      opacity: mockWireOpacity(t, it.delay), boxSizing: 'border-box'
-    }});
-    const color = (it) => h('div', { key: it.key + '-c', style: {
-      position: 'absolute', left: qw(it.x), top: qw(it.y), width: qw(it.w), height: qw(it.h),
-      borderRadius: qw(it.r), background: it.color,
-      border: it.border ? `${qw(1)} solid oklch(0.9 0.02 60)` : 'none',
-      boxShadow: it.shadow || 'none',
-      opacity: mockColorOpacity(t, it.delay, it.persistent), boxSizing: 'border-box'
-    }});
+    const scrollTo = (id) => (e) => {
+      e.preventDefault();
+      const el = document.querySelector(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    };
+    const wire = (it) => {
+      const isCta = it.key === 'herobtn' || it.key === 'navcta';
+      return h('div', {
+        key: it.key + '-w',
+        onClick: isCta ? scrollTo('#contact') : undefined,
+        style: {
+          position: 'absolute', left: qw(it.x), top: qw(it.y), width: qw(it.w), height: qw(it.h),
+          border: `${qw(1.5)} solid oklch(0.8 0.02 60)`, borderRadius: qw(it.r), background: 'transparent',
+          opacity: mockWireOpacity(t, it.delay), boxSizing: 'border-box',
+          cursor: isCta ? 'pointer' : undefined
+        }
+      });
+    };
+    const color = (it) => {
+      const isCta = it.key === 'herobtn' || it.key === 'navcta';
+      const isHome = it.key === 'nav1' || it.key === 'logo';
+      const isCard = it.key.startsWith('panel') || it.key.startsWith('icon');
+      let onClick = null, title = '';
+      if (isCta) { onClick = scrollTo('#contact'); title = 'Mergi la Contact'; }
+      else if (isHome) { onClick = scrollTo('#top'); title = 'Acasă'; }
+      else if (isCard) { onClick = scrollTo('#servicii'); title = 'Vezi Serviciile'; }
+
+      return h('div', {
+        key: it.key + '-c',
+        onClick: onClick || undefined,
+        title: title || undefined,
+        style: {
+          position: 'absolute', left: qw(it.x), top: qw(it.y), width: qw(it.w), height: qw(it.h),
+          borderRadius: qw(it.r), background: it.color,
+          border: it.border ? `${qw(1)} solid oklch(0.9 0.02 60)` : 'none',
+          boxShadow: it.shadow || 'none',
+          opacity: mockColorOpacity(t, it.delay, it.persistent), boxSizing: 'border-box',
+          cursor: onClick ? 'pointer' : undefined
+        }
+      });
+    };
     const byKey = k => MOCK_ITEMS.find(i => i.key === k);
-    const label = (key, x, y, w, delay, style, text) => {
+    const label = (key, x, y, w, delay, style, text, onClick, title) => {
       const op = mockFinalOpacity(t, delay), yOff = (1 - op) * -6;
-      return h('div', { key, style: Object.assign({
-        position: 'absolute', left: qw(x), top: qw(y), width: qw(w),
-        opacity: op, transform: `translateY(${yOff}px)`
-      }, style) }, text);
+      return h('div', {
+        key,
+        onClick: onClick || undefined,
+        title: title || undefined,
+        style: Object.assign({
+          position: 'absolute', left: qw(x), top: qw(y), width: qw(w),
+          opacity: op, transform: `translateY(${yOff}px)`,
+          cursor: onClick ? 'pointer' : undefined
+        }, style)
+      }, text);
     };
     const icon = (it, svg, finalDelay) => {
       const op = finalDelay !== undefined ? mockFinalOpacity(t, finalDelay) : mockColorOpacity(t, it.delay, it.persistent);
       const yOff = finalDelay !== undefined ? (1 - op) * -4 : 0;
-      return h('div', { key: it.key + '-glyph', style: {
-        position: 'absolute', left: qw(it.x), top: qw(it.y), width: qw(it.w), height: qw(it.h),
-        display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'oklch(0.55 0.13 38)',
-        opacity: op, transform: yOff ? `translateY(${yOff}px)` : 'none', boxSizing: 'border-box'
-      }, dangerouslySetInnerHTML: { __html: svg } });
+      return h('div', {
+        key: it.key + '-glyph',
+        onClick: scrollTo('#servicii'),
+        title: 'Vezi Serviciile',
+        style: {
+          position: 'absolute', left: qw(it.x), top: qw(it.y), width: qw(it.w), height: qw(it.h),
+          display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'oklch(0.55 0.13 38)',
+          opacity: op, transform: yOff ? `translateY(${yOff}px)` : 'none', boxSizing: 'border-box',
+          cursor: 'pointer'
+        },
+        dangerouslySetInnerHTML: { __html: svg }
+      });
     };
     const ICON_SHIELD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:55%;height:55%;"><path d="M12 3 L19 6 V11 C19 15.5 16 18.5 12 20.5 C8 18.5 5 15.5 5 11 V6 Z"/></svg>';
     const ICON_CODE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:55%;height:55%;"><polyline points="9 6 4 12 9 18"/><polyline points="15 6 20 12 15 18"/></svg>';
@@ -1060,21 +1484,21 @@ class Component extends DCLogic {
       ...MOCK_ITEMS.map(wire),
       ...MOCK_ITEMS.map(color),
       icon(byKey('photo-slot'), ICON_IMAGE),
-      h('img', { key: 'photo-real', src: './hero-mockup-foto.jpg', alt: '', style: {
+      h('img', { key: 'photo-real', src: './assets/images/hero-mockup-foto.jpg', alt: '', style: {
         position: 'absolute', left: qw(266), top: qw(58), width: qw(144), height: qw(108), borderRadius: qw(14),
         objectFit: 'cover', objectPosition: '50% 78%',
         boxShadow: '0 16px 30px rgba(60,45,25,0.14)', opacity: mockFinalOpacity(t, 0.02)
       }}),
       label('logo-label', logo.x, logo.y, logo.w, 0,
-        { height: qw(logo.h), display: 'flex', alignItems: 'center', justifyContent: 'center', lineHeight: 1, fontFamily: 'Spectral, serif', fontWeight: 600, fontSize: qw(13), color: '#fff', transform: 'none' }, 'a'),
+        { height: qw(logo.h), display: 'flex', alignItems: 'center', justifyContent: 'center', lineHeight: 1, fontFamily: 'Spectral, serif', fontWeight: 600, fontSize: qw(13), color: '#fff', transform: 'none' }, 'a', scrollTo('#top'), 'Acasă'),
       label('nav-home', byKey('nav1').x, byKey('nav1').y, byKey('nav1').w, 0.02,
-        { height: qw(byKey('nav1').h), display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Work Sans, sans-serif', fontWeight: 600, fontSize: qw(9), color: 'oklch(0.45 0.12 38)', transform: 'none' }, 'Home'),
+        { height: qw(byKey('nav1').h), display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Work Sans, sans-serif', fontWeight: 600, fontSize: qw(9), color: 'oklch(0.45 0.12 38)', transform: 'none' }, 'Home', scrollTo('#top'), 'Acasă'),
       label('nav-services', 236, 38, 46, 0.03,
-        { height: qw(12), display: 'flex', alignItems: 'center', fontFamily: 'Work Sans, sans-serif', fontSize: qw(9), color: 'oklch(0.4 0.02 50)', transform: 'none' }, 'Services'),
+        { height: qw(12), display: 'flex', alignItems: 'center', fontFamily: 'Work Sans, sans-serif', fontSize: qw(9), color: 'oklch(0.4 0.02 50)', transform: 'none' }, 'Services', scrollTo('#servicii'), 'Vezi Serviciile'),
       label('nav-about', 298, 38, 40, 0.04,
-        { height: qw(12), display: 'flex', alignItems: 'center', fontFamily: 'Work Sans, sans-serif', fontSize: qw(9), color: 'oklch(0.4 0.02 50)', transform: 'none' }, 'About'),
+        { height: qw(12), display: 'flex', alignItems: 'center', fontFamily: 'Work Sans, sans-serif', fontSize: qw(9), color: 'oklch(0.4 0.02 50)', transform: 'none' }, 'About', scrollTo('#despre'), 'Despre Anelis'),
       label('navcta-label', byKey('navcta').x, byKey('navcta').y, byKey('navcta').w, 0.05,
-        { height: qw(byKey('navcta').h), display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Work Sans, sans-serif', fontWeight: 600, fontSize: qw(9), color: '#fff', transform: 'none' }, 'Contact'),
+        { height: qw(byKey('navcta').h), display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Work Sans, sans-serif', fontWeight: 600, fontSize: qw(9), color: '#fff', transform: 'none' }, 'Contact', scrollTo('#contact'), 'Mergi la Contact'),
       label('heading-final', 24, 72, 260, 0.03,
         { fontFamily: 'Spectral, serif', fontWeight: 500, fontSize: qw(15), lineHeight: 1.28, color: 'oklch(0.22 0.02 50)' },
         [h('div', { key: 'h1' }, 'Elevate Your'), h('div', { key: 'h2' }, 'Digital Presence')]),
@@ -1082,15 +1506,15 @@ class Component extends DCLogic {
         { fontFamily: 'Work Sans, sans-serif', fontSize: qw(9.5), lineHeight: 1.4, color: 'oklch(0.5 0.02 50)' },
         'Thoughtful design, clean code.'),
       label('btn-label', heroBtn.x, heroBtn.y, heroBtn.w, 0.08,
-        { height: qw(heroBtn.h), display: 'flex', alignItems: 'center', justifyContent: 'center', gap: qw(6), fontFamily: 'Work Sans, sans-serif', fontWeight: 600, fontSize: qw(9.5), color: '#fff', transform: 'none' }, 'Start a project  →'),
+        { height: qw(heroBtn.h), display: 'flex', alignItems: 'center', justifyContent: 'center', gap: qw(6), fontFamily: 'Work Sans, sans-serif', fontWeight: 600, fontSize: qw(9.5), color: '#fff', transform: 'none' }, 'Start a project  →', scrollTo('#contact'), 'Începe un proiect (Contact)'),
       label('eyebrow-services', 24, 176, 220, 0.09,
-        { fontFamily: 'Work Sans, sans-serif', fontWeight: 600, fontSize: qw(7.5), letterSpacing: '0.1em', textTransform: 'uppercase', color: 'oklch(0.5 0.1 40)' }, 'Our Services'),
-      label('title0', CARD_X[0] + 10, 264, 104, 0.10, { fontFamily: 'Spectral, serif', fontWeight: 600, fontSize: qw(11), color: 'oklch(0.22 0.02 50)' }, 'Web Design'),
-      label('title1', CARD_X[1] + 10, 264, 104, 0.12, { fontFamily: 'Spectral, serif', fontWeight: 600, fontSize: qw(11), color: 'oklch(0.22 0.02 50)' }, 'Development'),
-      label('title2', CARD_X[2] + 10, 264, 104, 0.14, { fontFamily: 'Spectral, serif', fontWeight: 600, fontSize: qw(11), color: 'oklch(0.22 0.02 50)' }, 'UI/UX Design'),
-      label('text0', CARD_X[0] + 10, 282, 94, 0.12, { fontFamily: 'Work Sans, sans-serif', fontSize: qw(8), color: 'oklch(0.48 0.02 50)' }, 'Modern & clean'),
-      label('text1', CARD_X[1] + 10, 282, 94, 0.14, { fontFamily: 'Work Sans, sans-serif', fontSize: qw(8), color: 'oklch(0.48 0.02 50)' }, 'Scalable code'),
-      label('text2', CARD_X[2] + 10, 282, 94, 0.16, { fontFamily: 'Work Sans, sans-serif', fontSize: qw(8), color: 'oklch(0.48 0.02 50)' }, 'User-centered'),
+        { fontFamily: 'Work Sans, sans-serif', fontWeight: 600, fontSize: qw(7.5), letterSpacing: '0.1em', textTransform: 'uppercase', color: 'oklch(0.5 0.1 40)' }, 'Our Services', scrollTo('#servicii'), 'Vezi Serviciile'),
+      label('title0', CARD_X[0] + 10, 264, 104, 0.10, { fontFamily: 'Spectral, serif', fontWeight: 600, fontSize: qw(11), color: 'oklch(0.22 0.02 50)' }, 'Web Design', scrollTo('#servicii'), 'Vezi Serviciile'),
+      label('title1', CARD_X[1] + 10, 264, 104, 0.12, { fontFamily: 'Spectral, serif', fontWeight: 600, fontSize: qw(11), color: 'oklch(0.22 0.02 50)' }, 'Development', scrollTo('#servicii'), 'Vezi Serviciile'),
+      label('title2', CARD_X[2] + 10, 264, 104, 0.14, { fontFamily: 'Spectral, serif', fontWeight: 600, fontSize: qw(11), color: 'oklch(0.22 0.02 50)' }, 'UI/UX Design', scrollTo('#servicii'), 'Vezi Serviciile'),
+      label('text0', CARD_X[0] + 10, 282, 94, 0.12, { fontFamily: 'Work Sans, sans-serif', fontSize: qw(8), color: 'oklch(0.48 0.02 50)' }, 'Modern & clean', scrollTo('#servicii'), 'Vezi Serviciile'),
+      label('text1', CARD_X[1] + 10, 282, 94, 0.14, { fontFamily: 'Work Sans, sans-serif', fontSize: qw(8), color: 'oklch(0.48 0.02 50)' }, 'Scalable code', scrollTo('#servicii'), 'Vezi Serviciile'),
+      label('text2', CARD_X[2] + 10, 282, 94, 0.16, { fontFamily: 'Work Sans, sans-serif', fontSize: qw(8), color: 'oklch(0.48 0.02 50)' }, 'User-centered', scrollTo('#servicii'), 'Vezi Serviciile'),
       icon(byKey('icon0'), ICON_SHIELD, 0.08),
       icon(byKey('icon1'), ICON_CODE, 0.10),
       icon(byKey('icon2'), ICON_PALETTE, 0.12)
@@ -1121,8 +1545,16 @@ class Component extends DCLogic {
         checkOpacity: nextShown ? 1 : 0
       };
     };
-    const formMsgText = this.state.formMsg ? `Mesaj: "${this.state.formMsg}"` : 'Aș dori să discutăm despre un proiect.';
-    const waText = encodeURIComponent(`Bună Anelis, sunt ${this.state.formName || 'un client interesat'}. ${formMsgText}`);
+    const lines = [
+      `Bună Anelis, sunt ${this.state.formName || 'un client interesat'}.`,
+      this.state.formEmail ? `Email: ${this.state.formEmail}` : '',
+      this.state.selectedPackage ? `Pachet de interes: ${this.state.selectedPackage}` : (this.state.knowsPackage === false ? 'Pachet: Discuție inițială' : ''),
+      this.state.formBudget ? `Buget estimativ: ${this.state.formBudget}` : '',
+      this.state.formMsg ? `Mesaj: ${this.state.formMsg}` : 'Aș dori să discutăm despre un proiect.'
+    ].filter(Boolean);
+    const waText = encodeURIComponent(lines.join('\n'));
+    const defaultWaGreeting = encodeURIComponent('Bună Anelis! Aș dori să discutăm despre un proiect.');
+
     return {
       procesRef: this.setProcesRef,
       p1: pStep(0), p2: pStep(1), p3: pStep(2), p4: pStep(3), p5: pStep(4),
@@ -1156,7 +1588,7 @@ class Component extends DCLogic {
       knowsNoBg: this.state.knowsPackage === false ? 'oklch(0.94 0.025 55)' : 'oklch(0.98 0.006 75)',
       knowsNoColor: this.state.knowsPackage === false ? 'oklch(0.5 0.13 38)' : 'oklch(0.4 0.02 50)',
       showPrices: true,
-      waHref: 'https://wa.me/' + String(this.props.whatsappNumber ?? '40745782060').replace(/[^0-9]/g, ''),
+      waHref: 'https://wa.me/' + String(this.props.whatsappNumber ?? '40745782060').replace(/[^0-9]/g, '') + '?text=' + defaultWaGreeting,
       waDirectHref: 'https://wa.me/' + String(this.props.whatsappNumber ?? '40745782060').replace(/[^0-9]/g, '') + '?text=' + waText,
       webExpanded: this.state.isWebOpen ? 'true' : 'false',
       dataExpanded: this.state.isDataOpen ? 'true' : 'false',
@@ -1175,12 +1607,16 @@ class Component extends DCLogic {
       formName: this.state.formName,
       formEmail: this.state.formEmail,
       formMsg: this.state.formMsg,
+      formBudget: this.state.formBudget,
       setFormName: this.setFormName,
       setFormEmail: this.setFormEmail,
       setFormMsg: this.setFormMsg,
+      setFormBudget: this.setFormBudget,
+      isSubmitting: this.state.isSubmitting,
+      submitBtnText: this.state.isSubmitting ? 'Se trimite...' : 'Trimite mesajul',
       submitted: this.state.submitted,
       notSubmitted: !this.state.submitted,
-      handleSubmit: (e) => { e.preventDefault(); this.setState({ submitted: true }); }
+      handleSubmit: this.handleSubmit
     };
   }
 }

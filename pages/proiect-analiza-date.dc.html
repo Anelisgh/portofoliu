@@ -9,7 +9,7 @@
 <meta property="og:description" content="Studiu de conversie e-commerce: ce factori influențează cel mai mult decizia de cumpărare a vizitatorilor.">
 <meta property="og:type" content="article">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23af5234'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='36' font-weight='600' fill='%23ffffff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
-<script src="./support.js"></script>
+<script src="../assets/js/support.js"></script>
 </head>
 <body>
 <x-dc>
@@ -36,24 +36,22 @@ header{transition:padding .25s cubic-bezier(.4,0,.2,1), box-shadow .3s ease;}
 header img{transition:height .25s cubic-bezier(.4,0,.2,1);}
 header.is-scrolled{padding-top:8px !important;padding-bottom:8px !important;box-shadow:0 4px 20px rgba(60,45,25,0.08);}
 header.is-scrolled img{height:40px !important;}
+@media (max-width:640px){ [role="tablist"] button{ border-left:0 !important; } }
 </style>
 </helmet>
 
 <div style="font-family:'Work Sans',sans-serif;color:oklch(0.25 0.015 50);background:oklch(0.975 0.008 75);min-height:100vh;display:flex;flex-direction:column;">
 
   <header style="position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px clamp(16px,3vw,32px);padding:clamp(12px,2.4vw,20px) clamp(20px,5vw,64px);background:oklch(0.975 0.008 75 / 0.94);backdrop-filter:blur(8px);border-bottom:1px solid oklch(0.9 0.02 60);">
-    <a href="./index.html" style="display:flex;align-items:center;text-decoration:none;">
-      <img src="./logo-anelis.png" alt="Anelis" style="height:64px;width:auto;display:block;">
+    <a href="../index.html" style="display:flex;align-items:center;text-decoration:none;">
+      <img src="../assets/images/logo-anelis.png" alt="Anelis" style="height:64px;width:auto;display:block;">
     </a>
     <nav class="primary-nav" style="display:flex;align-items:center;flex-wrap:wrap;gap:clamp(12px,2.2vw,32px);font-size:clamp(13.5px,1.4vw,15px);color:oklch(0.4 0.02 50);">
-      <a href="./index.html#despre" style="color:inherit;text-decoration:none;padding:11px 0;" style-hover="color:oklch(0.48 0.13 38);">Despre</a>
-      <a href="./index.html#servicii" style="color:inherit;text-decoration:none;padding:11px 0;" style-hover="color:oklch(0.48 0.13 38);">Servicii</a>
-      <a href="./index.html#proces" style="color:inherit;text-decoration:none;padding:11px 0;" style-hover="color:oklch(0.48 0.13 38);">Proces</a>
-      <a href="./index.html#proiecte" style="color:inherit;text-decoration:none;padding:11px 0;" style-hover="color:oklch(0.48 0.13 38);">Proiecte</a>
-      <a href="./index.html#contact" style="color:oklch(0.45 0.12 38);text-decoration:none;font-weight:600;padding:12px 22px;border:1.5px solid oklch(0.55 0.13 38);border-radius:24px;" style-hover="background:oklch(0.55 0.13 38);color:#fff;">Contact</a>
-      <a href="https://www.linkedin.com/in/anelis-gheorghias/" target="_blank" rel="noopener" aria-label="LinkedIn Anelis Gheorghiaș" title="LinkedIn Anelis" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1.5px solid oklch(0.88 0.02 60);color:oklch(0.45 0.12 38);text-decoration:none;transition:border-color .2s, background .2s;" style-hover="border-color:oklch(0.55 0.13 38);background:oklch(0.94 0.025 55);">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-      </a>
+      <a href="../index.html#despre" style="color:inherit;text-decoration:none;padding:11px 0;" style-hover="color:oklch(0.48 0.13 38);">Despre</a>
+      <a href="../index.html#servicii" style="color:inherit;text-decoration:none;padding:11px 0;" style-hover="color:oklch(0.48 0.13 38);">Servicii</a>
+      <a href="../index.html#proces" style="color:inherit;text-decoration:none;padding:11px 0;" style-hover="color:oklch(0.48 0.13 38);">Proces</a>
+      <a href="../index.html#proiecte" style="color:inherit;text-decoration:none;padding:11px 0;" style-hover="color:oklch(0.48 0.13 38);">Proiecte</a>
+      <a href="../index.html#contact" style="color:oklch(0.45 0.12 38);text-decoration:none;font-weight:600;padding:12px 22px;border:1.5px solid oklch(0.55 0.13 38);border-radius:24px;" style-hover="background:oklch(0.55 0.13 38);color:#fff;">Contact</a>
     </nav>
     <details class="mobile-nav" style="display:none;position:relative;">
       <summary aria-label="Deschide meniul" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;border:1.5px solid oklch(0.88 0.02 60);cursor:pointer;background:oklch(0.98 0.006 75);">
@@ -64,15 +62,11 @@ header.is-scrolled img{height:40px !important;}
         </span>
       </summary>
       <nav style="position:absolute;top:calc(100% + 8px);right:0;min-width:220px;display:flex;flex-direction:column;gap:2px;padding:10px;background:oklch(0.98 0.006 75);border:1px solid oklch(0.9 0.02 60);border-radius:14px;box-shadow:0 16px 40px rgba(43,35,24,0.16);">
-        <a href="./index.html#despre" style="display:flex;align-items:center;min-height:46px;padding:0 12px;border-radius:9px;color:oklch(0.32 0.02 50);text-decoration:none;font-size:15px;" style-hover="background:oklch(0.94 0.025 55);">Despre</a>
-        <a href="./index.html#servicii" style="display:flex;align-items:center;min-height:46px;padding:0 12px;border-radius:9px;color:oklch(0.32 0.02 50);text-decoration:none;font-size:15px;" style-hover="background:oklch(0.94 0.025 55);">Servicii</a>
-        <a href="./index.html#proces" style="display:flex;align-items:center;min-height:46px;padding:0 12px;border-radius:9px;color:oklch(0.32 0.02 50);text-decoration:none;font-size:15px;" style-hover="background:oklch(0.94 0.025 55);">Proces</a>
-        <a href="./index.html#proiecte" style="display:flex;align-items:center;min-height:46px;padding:0 12px;border-radius:9px;color:oklch(0.32 0.02 50);text-decoration:none;font-size:15px;" style-hover="background:oklch(0.94 0.025 55);">Proiecte</a>
-        <a href="./index.html#contact" style="display:flex;align-items:center;justify-content:center;min-height:46px;margin-top:6px;padding:0 12px;border-radius:9px;background:oklch(0.55 0.13 38);color:#fff;text-decoration:none;font-size:15px;font-weight:600;" style-hover="background:oklch(0.49 0.13 38);">Contact</a>
-        <a href="https://www.linkedin.com/in/anelis-gheorghias/" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;margin-top:4px;padding:0 12px;border-radius:9px;border:1px solid oklch(0.88 0.02 60);color:oklch(0.45 0.12 38);text-decoration:none;font-size:14px;font-weight:600;" style-hover="background:oklch(0.94 0.025 55);">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-          LinkedIn
-        </a>
+        <a href="../index.html#despre" style="display:flex;align-items:center;min-height:46px;padding:0 12px;border-radius:9px;color:oklch(0.32 0.02 50);text-decoration:none;font-size:15px;" style-hover="background:oklch(0.94 0.025 55);">Despre</a>
+        <a href="../index.html#servicii" style="display:flex;align-items:center;min-height:46px;padding:0 12px;border-radius:9px;color:oklch(0.32 0.02 50);text-decoration:none;font-size:15px;" style-hover="background:oklch(0.94 0.025 55);">Servicii</a>
+        <a href="../index.html#proces" style="display:flex;align-items:center;min-height:46px;padding:0 12px;border-radius:9px;color:oklch(0.32 0.02 50);text-decoration:none;font-size:15px;" style-hover="background:oklch(0.94 0.025 55);">Proces</a>
+        <a href="../index.html#proiecte" style="display:flex;align-items:center;min-height:46px;padding:0 12px;border-radius:9px;color:oklch(0.32 0.02 50);text-decoration:none;font-size:15px;" style-hover="background:oklch(0.94 0.025 55);">Proiecte</a>
+        <a href="../index.html#contact" style="display:flex;align-items:center;justify-content:center;min-height:46px;margin-top:6px;padding:0 12px;border-radius:9px;background:oklch(0.55 0.13 38);color:#fff;text-decoration:none;font-size:15px;font-weight:600;" style-hover="background:oklch(0.49 0.13 38);">Contact</a>
       </nav>
     </details>
   </header>
@@ -80,7 +74,7 @@ header.is-scrolled img{height:40px !important;}
   <main style="display:flex;flex-direction:column;flex:1;">
 
   <section style="max-width:900px;margin:0 auto;padding:clamp(34px,3.7vw,56px) clamp(20px,5vw,64px) 0;width:100%;" data-screen-label="Titlu proiect">
-    <a href="./index.html#proiecte" style="display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 20px 10px 16px;margin-bottom:30px;border:1px solid oklch(0.88 0.02 60);border-radius:24px;background:oklch(0.98 0.006 75);font-size:14.5px;font-weight:600;color:oklch(0.35 0.02 50);text-decoration:none;white-space:nowrap;" style-hover="border-color:oklch(0.55 0.13 38);color:oklch(0.45 0.12 38);"><span aria-hidden="true" style="font-size:16px;line-height:1;">←</span>Toate proiectele</a>
+    <a href="../index.html#proiecte" style="display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 20px 10px 16px;margin-bottom:30px;border:1px solid oklch(0.88 0.02 60);border-radius:24px;background:oklch(0.98 0.006 75);font-size:14.5px;font-weight:600;color:oklch(0.35 0.02 50);text-decoration:none;white-space:nowrap;" style-hover="border-color:oklch(0.55 0.13 38);color:oklch(0.45 0.12 38);"><span aria-hidden="true" style="font-size:16px;line-height:1;">←</span>Toate proiectele</a>
     <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px;">
       <span style="font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:oklch(0.42 0.12 38);background:oklch(0.92 0.04 55);padding:6px 14px;border-radius:20px;">Analiză Date pentru Afaceri</span>
       <span style="font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:oklch(0.44 0.02 50);border:1px solid oklch(0.82 0.02 60);padding:5px 12px;border-radius:20px;">E-Commerce &amp; Conversie</span>
@@ -200,8 +194,8 @@ header.is-scrolled img{height:40px !important;}
     <div style="max-width:900px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;">
       <p style="margin:0;font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:oklch(0.44 0.02 50);white-space:nowrap;">Vezi și</p>
       <div style="display:flex;flex-wrap:wrap;gap:12px 28px;">
-        <a href="./Proiect%20PhysioBaby.dc.html" style="display:inline-flex;align-items:center;min-height:44px;font-size:15.5px;font-weight:600;color:oklch(0.45 0.12 38);text-decoration:none;border-bottom:1.5px solid oklch(0.78 0.08 45);padding:8px 0 4px;white-space:nowrap;" style-hover="border-bottom-color:oklch(0.55 0.13 38);">PhysioBaby →</a>
-        <a href="./Proiect%20KinetoCare.dc.html" style="display:inline-flex;align-items:center;min-height:44px;font-size:15.5px;font-weight:600;color:oklch(0.45 0.12 38);text-decoration:none;border-bottom:1.5px solid oklch(0.78 0.08 45);padding:8px 0 4px;white-space:nowrap;" style-hover="border-bottom-color:oklch(0.55 0.13 38);">KinetoCare →</a>
+        <a href="./proiect-physiobaby.dc.html" style="display:inline-flex;align-items:center;min-height:44px;font-size:15.5px;font-weight:600;color:oklch(0.45 0.12 38);text-decoration:none;border-bottom:1.5px solid oklch(0.78 0.08 45);padding:8px 0 4px;white-space:nowrap;" style-hover="border-bottom-color:oklch(0.55 0.13 38);">PhysioBaby →</a>
+        <a href="./proiect-kinetocare.dc.html" style="display:inline-flex;align-items:center;min-height:44px;font-size:15.5px;font-weight:600;color:oklch(0.45 0.12 38);text-decoration:none;border-bottom:1.5px solid oklch(0.78 0.08 45);padding:8px 0 4px;white-space:nowrap;" style-hover="border-bottom-color:oklch(0.55 0.13 38);">KinetoCare →</a>
       </div>
     </div>
   </section>
@@ -211,8 +205,8 @@ header.is-scrolled img{height:40px !important;}
       <h2 style="font-family:'Spectral',serif;font-weight:500;font-size:clamp(25px,3.2vw,32px);color:oklch(0.98 0.006 75);margin:0 0 18px;text-wrap:pretty;">Ai date de vânzări sau clienți care stau nefolosite?</h2>
       <p style="font-size:16.5px;line-height:1.65;color:oklch(0.8 0.015 60);margin:0 0 30px;">Trimite-mi un fișier și îți arăt ce tipare și oportunități concrete de creștere se ascund în el.</p>
       <div style="display:flex;flex-wrap:wrap;gap:14px 24px;justify-content:center;align-items:center;">
-        <a href="./index.html#contact" style="display:inline-block;background:oklch(0.55 0.13 38);color:#fff;padding:16px 34px;border-radius:28px;font-size:15.5px;font-weight:600;text-decoration:none;white-space:nowrap;" style-hover="background:oklch(0.49 0.13 38);">Cere o ofertă</a>
-        <a href="./index.html#servicii" style="display:inline-flex;align-items:center;min-height:44px;padding:10px 0;color:oklch(0.88 0.02 60);font-size:15px;font-weight:600;text-decoration:underline;text-underline-offset:4px;white-space:nowrap;" style-hover="color:#fff;">Vezi pachetele de analiză</a>
+        <a href="../index.html#contact" style="display:inline-block;background:oklch(0.55 0.13 38);color:#fff;padding:16px 34px;border-radius:28px;font-size:15.5px;font-weight:600;text-decoration:none;white-space:nowrap;" style-hover="background:oklch(0.49 0.13 38);">Cere o ofertă</a>
+        <a href="../index.html#servicii" style="display:inline-flex;align-items:center;min-height:44px;padding:10px 0;color:oklch(0.88 0.02 60);font-size:15px;font-weight:600;text-decoration:underline;text-underline-offset:4px;white-space:nowrap;" style-hover="color:#fff;">Vezi pachetele de analiză</a>
       </div>
     </div>
   </section>
@@ -223,10 +217,10 @@ header.is-scrolled img{height:40px !important;}
     <div style="max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
       <p style="margin:0;font-size:13.5px;">© 2026 Anelis Gheorghiaș. Toate drepturile rezervate.</p>
       <nav style="display:flex;flex-wrap:wrap;gap:4px 24px;font-size:13.5px;">
-        <a href="./index.html#despre" style="color:oklch(0.72 0.015 60);text-decoration:none;padding:8px 0;" style-hover="color:#fff;">Despre</a>
-        <a href="./index.html#servicii" style="color:oklch(0.72 0.015 60);text-decoration:none;padding:8px 0;" style-hover="color:#fff;">Servicii</a>
-        <a href="./index.html#proiecte" style="color:oklch(0.72 0.015 60);text-decoration:none;padding:8px 0;" style-hover="color:#fff;">Proiecte</a>
-        <a href="./index.html#contact" style="color:oklch(0.72 0.015 60);text-decoration:none;padding:8px 0;" style-hover="color:#fff;">Contact</a>
+        <a href="../index.html#despre" style="color:oklch(0.72 0.015 60);text-decoration:none;padding:8px 0;" style-hover="color:#fff;">Despre</a>
+        <a href="../index.html#servicii" style="color:oklch(0.72 0.015 60);text-decoration:none;padding:8px 0;" style-hover="color:#fff;">Servicii</a>
+        <a href="../index.html#proiecte" style="color:oklch(0.72 0.015 60);text-decoration:none;padding:8px 0;" style-hover="color:#fff;">Proiecte</a>
+        <a href="../index.html#contact" style="color:oklch(0.72 0.015 60);text-decoration:none;padding:8px 0;" style-hover="color:#fff;">Contact</a>
         <a href="https://www.linkedin.com/in/anelis-gheorghias/" target="_blank" rel="noopener" aria-label="LinkedIn" style="display:inline-flex;align-items:center;gap:6px;color:oklch(0.72 0.015 60);text-decoration:none;padding:8px 0;" style-hover="color:#fff;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
           LinkedIn
@@ -265,9 +259,9 @@ const IMPACT = [
 ];
 
 const GROUPS = [
-  { gen: 'Căutare Google (SEO)', faraJob: 2.85, cuJob: 5.92 },
-  { gen: 'Social Media (Rețele)', faraJob: 1.58, cuJob: 3.75 },
-  { gen: 'Acces direct / prin recomandare', faraJob: 3.20, cuJob: 7.10 }
+  { gen: 'Căutare Google (SEO)', clientiNoi: 2.85, clientiRecurenti: 5.92 },
+  { gen: 'Social Media (Rețele)', clientiNoi: 1.58, clientiRecurenti: 3.75 },
+  { gen: 'Acces direct / prin recomandare', clientiNoi: 3.20, clientiRecurenti: 7.10 }
 ];
 
 const ro = (n, d) => n.toFixed(d).replace('.', ',');
@@ -293,8 +287,8 @@ class Component extends DCLogic {
     const scale = (v) => Math.round(((v - lo) / (hi - lo)) * 100);
     const groups = GROUPS.map(g => ({
       gen: g.gen,
-      aLabel: ro(g.faraJob, 2) + '%', aPct: scale(g.faraJob), aFill: SERIE_A,
-      bLabel: ro(g.cuJob, 2) + '%', bPct: scale(g.cuJob), bFill: SERIE_B
+      aLabel: ro(g.clientiNoi, 2) + '%', aPct: scale(g.clientiNoi), aFill: SERIE_A,
+      bLabel: ro(g.clientiRecurenti, 2) + '%', bPct: scale(g.clientiRecurenti), bFill: SERIE_B
     }));
 
     const { reviews, speed, shipping, payments } = this.state;
