@@ -1100,9 +1100,11 @@ header.is-scrolled img{height:40px !important;}
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (window.history && window.history.pushState) {
-      window.history.pushState(null, '', '#top');
+      if (window.location.hash) {
+        window.history.pushState(null, '', window.location.pathname + window.location.search);
+      }
     } else {
-      window.location.hash = '#top';
+      window.location.hash = '';
     }
   });
 })();
@@ -1379,6 +1381,13 @@ class Component extends DCLogic {
     const chromeOpacity = mSeg(t, 0, 0.08);
     const scrollTo = (id) => (e) => {
       e.preventDefault();
+      if (id === '#top') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (window.history && window.history.pushState && window.location.hash) {
+          window.history.pushState(null, '', window.location.pathname + window.location.search);
+        }
+        return;
+      }
       const el = document.querySelector(id);
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     };
