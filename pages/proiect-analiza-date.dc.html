@@ -17,25 +17,138 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;1,400&family=Work+Sans:wght@400;500;600;700&display=swap">
 <style>
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:oklch(0.975 0.008 75);}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden;max-width:100%;}
+body{margin:0;background:oklch(0.975 0.008 75);overflow-x:hidden;max-width:100%;}
 a{color:oklch(0.55 0.13 38);}
 a:hover{color:oklch(0.49 0.13 38);}
 a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid oklch(0.55 0.13 38);outline-offset:3px;}
-@media (max-width:760px){
-  header .primary-nav{display:none !important;}
-  header .mobile-nav{display:block !important;}
-}
-@media (min-width:761px){
-  header .mobile-nav{display:none !important;}
-}
-.mobile-nav summary{list-style:none;}
-.mobile-nav summary::-webkit-details-marker{display:none;}
-.mobile-nav summary::marker{content:'';}
+@keyframes mobileNavSlide{from{opacity:0;transform:translateY(-8px) scale(0.98);}to{opacity:1;transform:translateY(0) scale(1);}}
+
+/* Touch scroll guarantee on images */
+image-slot, image-slot img { touch-action: pan-y pinch-zoom !important; }
+
 header{transition:padding .25s cubic-bezier(.4,0,.2,1), box-shadow .3s ease;}
 header img{transition:height .25s cubic-bezier(.4,0,.2,1);}
 header.is-scrolled{padding-top:8px !important;padding-bottom:8px !important;box-shadow:0 4px 20px rgba(60,45,25,0.08);}
 header.is-scrolled img{height:40px !important;}
+
+/* Mobile Navbar */
+@media (max-width:760px){
+  header{
+    padding: 10px 16px !important;
+    flex-wrap: nowrap !important;
+  }
+  header img{
+    height: 38px !important;
+  }
+  header.is-scrolled{
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+  header.is-scrolled img{
+    height: 34px !important;
+  }
+  header .primary-nav{display:none !important;}
+  header .mobile-nav{display:block !important;}
+  .mobile-nav nav{
+    position: absolute !important;
+    top: calc(100% + 10px) !important;
+    right: 0 !important;
+    width: min(calc(100vw - 32px), 290px) !important;
+    min-width: 250px !important;
+    padding: 10px !important;
+    background: oklch(0.985 0.006 75 / 0.98) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid oklch(0.88 0.02 60) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 16px 40px rgba(43, 35, 24, 0.18), 0 2px 8px rgba(0,0,0,0.06) !important;
+    animation: mobileNavSlide 0.22s cubic-bezier(0.16, 1, 0.3, 1) both !important;
+    z-index: 100 !important;
+  }
+  .mobile-nav nav a{
+    min-height: 46px !important;
+    padding: 0 14px !important;
+    font-size: 15.5px !important;
+    font-weight: 500 !important;
+    color: oklch(0.28 0.02 50) !important;
+    border-radius: 10px !important;
+    transition: background 0.15s ease, color 0.15s ease !important;
+  }
+  .mobile-nav nav a:active{
+    background: oklch(0.93 0.025 55) !important;
+    color: oklch(0.48 0.13 38) !important;
+  }
+  .mobile-nav nav a.nav-contact-btn{
+    background: oklch(0.55 0.13 38) !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    margin-top: 6px !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 14px oklch(0.55 0.13 38 / 0.25) !important;
+  }
+  .mobile-nav nav a.nav-contact-btn:active{
+    background: oklch(0.48 0.13 38) !important;
+  }
+}
+@media (min-width:761px){
+  header .mobile-nav{display:none !important;}
+}
+
+/* Hamburger toggle & smooth morph into X */
+.mobile-nav summary{
+  list-style: none;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.mobile-nav summary::-webkit-details-marker{display:none;}
+.mobile-nav summary::marker{content:'';}
+.mobile-nav summary .burger-icon{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 16px;
+  position: relative;
+}
+.mobile-nav summary .burger-line{
+  position: absolute;
+  width: 19px;
+  height: 2px;
+  border-radius: 1.5px;
+  background: oklch(0.3 0.02 50);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease, background 0.2s ease;
+}
+.mobile-nav summary .burger-line:nth-child(1){
+  transform: translateY(-5.5px);
+}
+.mobile-nav summary .burger-line:nth-child(2){
+  transform: translateY(0);
+}
+.mobile-nav summary .burger-line:nth-child(3){
+  transform: translateY(5.5px);
+}
+.mobile-nav[open] summary{
+  background: oklch(0.94 0.025 55) !important;
+  border-color: oklch(0.72 0.08 45) !important;
+}
+.mobile-nav[open] summary .burger-line:nth-child(1){
+  transform: translateY(0) rotate(45deg);
+  background: oklch(0.55 0.13 38);
+}
+.mobile-nav[open] summary .burger-line:nth-child(2){
+  opacity: 0;
+  transform: scaleX(0);
+}
+.mobile-nav[open] summary .burger-line:nth-child(3){
+  transform: translateY(0) rotate(-45deg);
+  background: oklch(0.55 0.13 38);
+}
 @media (max-width:640px){ [role="tablist"] button{ border-left:0 !important; } }
 </style>
 </helmet>
@@ -55,18 +168,18 @@ header.is-scrolled img{height:40px !important;}
     </nav>
     <details class="mobile-nav" style="display:none;position:relative;">
       <summary aria-label="Deschide meniul" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;border:1.5px solid oklch(0.88 0.02 60);cursor:pointer;background:oklch(0.98 0.006 75);">
-        <span aria-hidden="true" style="display:flex;flex-direction:column;gap:4px;">
-          <span style="width:18px;height:2px;border-radius:1px;background:oklch(0.3 0.02 50);"></span>
-          <span style="width:18px;height:2px;border-radius:1px;background:oklch(0.3 0.02 50);"></span>
-          <span style="width:18px;height:2px;border-radius:1px;background:oklch(0.3 0.02 50);"></span>
+        <span class="burger-icon" aria-hidden="true">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
         </span>
       </summary>
-      <nav style="position:absolute;top:calc(100% + 8px);right:0;min-width:220px;display:flex;flex-direction:column;gap:2px;padding:10px;background:oklch(0.98 0.006 75);border:1px solid oklch(0.9 0.02 60);border-radius:14px;box-shadow:0 16px 40px rgba(43,35,24,0.16);">
+      <nav>
         <a href="../index.html#despre" style="display:flex;align-items:center;min-height:46px;padding:0 12px;border-radius:9px;color:oklch(0.32 0.02 50);text-decoration:none;font-size:15px;" style-hover="background:oklch(0.94 0.025 55);">Despre</a>
         <a href="../index.html#servicii" style="display:flex;align-items:center;min-height:46px;padding:0 12px;border-radius:9px;color:oklch(0.32 0.02 50);text-decoration:none;font-size:15px;" style-hover="background:oklch(0.94 0.025 55);">Servicii</a>
         <a href="../index.html#proces" style="display:flex;align-items:center;min-height:46px;padding:0 12px;border-radius:9px;color:oklch(0.32 0.02 50);text-decoration:none;font-size:15px;" style-hover="background:oklch(0.94 0.025 55);">Proces</a>
         <a href="../index.html#proiecte" style="display:flex;align-items:center;min-height:46px;padding:0 12px;border-radius:9px;color:oklch(0.32 0.02 50);text-decoration:none;font-size:15px;" style-hover="background:oklch(0.94 0.025 55);">Proiecte</a>
-        <a href="../index.html#contact" style="display:flex;align-items:center;justify-content:center;min-height:46px;margin-top:6px;padding:0 12px;border-radius:9px;background:oklch(0.55 0.13 38);color:#fff;text-decoration:none;font-size:15px;font-weight:600;" style-hover="background:oklch(0.49 0.13 38);">Contact</a>
+        <a href="../index.html#contact" class="nav-contact-btn" style="display:flex;align-items:center;justify-content:center;min-height:46px;margin-top:6px;padding:0 12px;border-radius:9px;background:oklch(0.55 0.13 38);color:#fff;text-decoration:none;font-size:15px;font-weight:600;" style-hover="background:oklch(0.49 0.13 38);">Contact</a>
       </nav>
     </details>
   </header>
@@ -241,6 +354,26 @@ header.is-scrolled img{height:40px !important;}
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  function closeMobileNav() {
+    var mobileNav = document.querySelector('details.mobile-nav');
+    if (mobileNav && mobileNav.hasAttribute('open')) {
+      mobileNav.removeAttribute('open');
+    }
+  }
+
+  document.addEventListener('click', function(e){
+    var mobileNav = document.querySelector('details.mobile-nav');
+    if (mobileNav && mobileNav.hasAttribute('open')) {
+      if (e.target.closest('.mobile-nav nav a') || !mobileNav.contains(e.target)) {
+        mobileNav.removeAttribute('open');
+      }
+    }
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeMobileNav();
+  });
 })();
 </script>
 <script type="text/x-dc" data-dc-script>
